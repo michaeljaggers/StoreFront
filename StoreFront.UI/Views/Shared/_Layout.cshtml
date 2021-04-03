@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Boutique | Ecommerce bootstrap template</title>
+    <title>@ViewBag.Title</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -21,10 +21,8 @@
     <!-- Google fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
-    <!-- theme stylesheet-->
-    <link rel="stylesheet" href="~/Content/css/style.default.css" id="theme-stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="~/Content/css/custom.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
     <!-- Favicon-->
     <link rel="shortcut icon" href="~/Content/img/favicon.png">
     <!-- Tweaks for older IEs-->
@@ -150,15 +148,15 @@
             </div>
         </footer>
         <!-- JavaScript files-->
-        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
-        <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="~/Content/vendor/lightbox2/js/lightbox.min.js"></script>
-        <script src="~/Content/vendor/nouislider/nouislider.min.js"></script>
-        <script src="~/Content/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-        <script src="~/Content/vendor/owl.carousel2/owl.carousel.min.js"></script>
-        <script src="~/Content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
-        <script src="~/Scripts/js/front.js"></script>
-        @RenderSection(“scripts”, required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/lightbox")
+        @Scripts.Render("~/bundles/nouislider")
+        @Scripts.Render("~/bundles/bootstrap-select")
+        @Scripts.Render("~/bundles/owl-carousel2")
+        @Scripts.Render("~/bundles/front")
+        @RenderSection("scripts", required: false)
         <script>
 // ------------------------------------------------------- //
         //   Inject SVG Sprite -
