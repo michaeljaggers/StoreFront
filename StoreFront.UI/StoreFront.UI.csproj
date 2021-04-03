@@ -184,22 +184,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\custom.css" />
-    <Content Include="Content\css\style.blue.css" />
-    <Content Include="Content\css\style.blue.min.css" />
     <Content Include="Content\css\style.default.css" />
     <Content Include="Content\css\style.default.min.css" />
-    <Content Include="Content\css\style.gold.css" />
-    <Content Include="Content\css\style.gold.min.css" />
-    <Content Include="Content\css\style.green.css" />
-    <Content Include="Content\css\style.green.min.css" />
-    <Content Include="Content\css\style.pink.css" />
-    <Content Include="Content\css\style.pink.min.css" />
-    <Content Include="Content\css\style.red.css" />
-    <Content Include="Content\css\style.red.min.css" />
-    <Content Include="Content\css\style.sea.css" />
-    <Content Include="Content\css\style.sea.min.css" />
-    <Content Include="Content\css\style.violet.css" />
-    <Content Include="Content\css\style.violet.min.css" />
     <Content Include="Content\icons\demo.html" />
     <Content Include="Content\icons\orion-svg-sprite.svg" />
     <Content Include="Content\icons\styles.css" />
@@ -376,9 +362,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\js\demo.js" />
     <Content Include="Scripts\js\front.js" />
     <Content Include="_Archive\cart.html" />
     <Content Include="_Archive\checkout.html" />
@@ -578,14 +561,7 @@
     <Content Include="_Archive\vendor\owl.carousel2\assets\owl.video.play.png" />
     <Content Include="_Archive\vendor\owl.carousel2\owl.carousel.js" />
     <Content Include="_Archive\vendor\owl.carousel2\owl.carousel.min.js" />
-    <Content Include="Content\css\style.blue.min.css.map" />
     <Content Include="Content\css\style.default.min.css.map" />
-    <Content Include="Content\css\style.gold.min.css.map" />
-    <Content Include="Content\css\style.green.min.css.map" />
-    <Content Include="Content\css\style.pink.min.css.map" />
-    <Content Include="Content\css\style.red.min.css.map" />
-    <Content Include="Content\css\style.sea.min.css.map" />
-    <Content Include="Content\css\style.violet.min.css.map" />
     <Content Include="Content\vendor\jquery.cookie\component.json" />
     <Content Include="Content\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Content\vendor\node-sass\bin\emcc" />
@@ -593,11 +569,6 @@
     <Content Include="Content\vendor\node-sass\binding.gyp" />
     <Content Include="Content\vendor\node-sass\vendor\linux-x64-64\binding.node" />
     <Content Include="Content\vendor\nouislider\CHANGELOG.MD" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -693,8 +664,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
