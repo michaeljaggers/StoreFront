@@ -670,6 +670,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\js\countries.json" />
     <Content Include="Views\Shared\OriginalLayout.cshtml" />
+    <Content Include="Views\Home\Shop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
