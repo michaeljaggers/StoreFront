@@ -46,5 +46,11 @@ namespace StoreFront.UI.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Styleguide()
+        {
+            return View();
+        }
     }
 }
