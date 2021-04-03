@@ -38,12 +38,12 @@
         <header class="header bg-white">
             <div class="container px-0 px-lg-3">
                 <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
-                    <a class="navbar-brand" href="index.html"><span class="font-weight-bold text-uppercase text-dark">Boutique</span></a>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><span class="font-weight-bold text-uppercase text-dark">Boutique</span></a>
                     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <!-- Link--><a class="nav-link active" href="index.html">Home</a>
+                                <!-- Link--><a class="nav-link active" href="@Url.Action("Index", "Home")">Home</a>
                             </li>
                             <li class="nav-item">
                                 <!-- Link--><a class="nav-link" href="shop.html">Shop</a>
@@ -53,7 +53,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown"><a class="dropdown-item border-0 transition-link" href="index.html">Homepage</a><a class="dropdown-item border-0 transition-link" href="shop.html">Category</a><a class="dropdown-item border-0 transition-link" href="detail.html">Product detail</a><a class="dropdown-item border-0 transition-link" href="cart.html">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="checkout.html">Checkout</a></div>
+                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown"><a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Home")">Homepage</a><a class="dropdown-item border-0 transition-link" href="shop.html">Category</a><a class="dropdown-item border-0 transition-link" href="detail.html">Product detail</a><a class="dropdown-item border-0 transition-link" href="cart.html">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="checkout.html">Checkout</a></div>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto">
@@ -71,7 +71,7 @@
                 <div class="modal-content">
                     <div class="modal-body p-0">
                         <div class="row align-items-stretch">
-                            <div class="col-lg-6 p-lg-0"><a class="product-view d-block h-100 bg-cover bg-center" style="background: url(img/product-5.jpg)" href="img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a><a class="d-none" href="img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a><a class="d-none" href="img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a></div>
+                            <div class="col-lg-6 p-lg-0"><a class="product-view d-block h-100 bg-cover bg-center" style="background: url(../../Content/img/product-5.jpg)" href="~/Content/img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a><a class="d-none" href="~/Content/img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a><a class="d-none" href="~/Content/img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a></div>
                             <div class="col-lg-6">
                                 <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 <div class="p-5 my-md-4">
@@ -140,7 +140,7 @@
                 <div class="border-top pt-4" style="border-color: #1d1d1d !important">
                     <div class="row">
                         <div class="col-lg-6">
-                            <p class="small text-muted mb-0">&copy; 2020 All rights reserved.</p>
+                            <p class="small text-muted mb-0">&copy; @DateTime.Now.Year All rights reserved.</p>
                         </div>
                         <div class="col-lg-6 text-lg-right">
                             <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstraptemple.com/p/bootstrap-ecommerce">Bootstrap Temple</a></p>
@@ -150,14 +150,14 @@
             </div>
         </footer>
         <!-- JavaScript files-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="vendor/lightbox2/js/lightbox.min.js"></script>
-        <script src="vendor/nouislider/nouislider.min.js"></script>
-        <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
-        <script src="vendor/owl.carousel2/owl.carousel.min.js"></script>
-        <script src="vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
-        <script src="js/front.js"></script>
+        <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+        <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Content/vendor/lightbox2/js/lightbox.min.js"></script>
+        <script src="~/Content/vendor/nouislider/nouislider.min.js"></script>
+        <script src="~/Content/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+        <script src="~/Content/vendor/owl.carousel2/owl.carousel.min.js"></script>
+        <script src="~/Content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"></script>
+        <script src="~/Content/js/front.js"></script>
         <script>
 // ------------------------------------------------------- //
         //   Inject SVG Sprite -
