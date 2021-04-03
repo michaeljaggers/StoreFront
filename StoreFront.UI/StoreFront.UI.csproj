@@ -671,6 +671,7 @@
     <Content Include="Scripts\js\countries.json" />
     <Content Include="Views\Shared\OriginalLayout.cshtml" />
     <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Home\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
