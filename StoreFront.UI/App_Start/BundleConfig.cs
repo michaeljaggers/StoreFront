@@ -29,14 +29,20 @@ namespace StoreFront.UI
                         "~/Content/vendor/owl.carousel2/owl.carousel.min.js",
                         "~/Content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Content/vendor/bootstrap/js/bootstrap.min.js",
                         "~/Scripts/respond.js"));
+
+            bundles.Add(new StyleBundle("~/Content/vendor").Include(
+                        "~/Content/vendor/bootstrap/css/bootstrap.min.css",
+                        "~/Content/vendor/bootstrap-select/css/bootstrap-select.min.css",
+                        "~/Content/vendor/lightbox2/css/lightbox.min.css",
+                        "~/Content/vendor/nouislider/nouislider.min.css",
+                        "~/Content/vendor/owl.carousel2/assets/owl.carousel.min.css",
+                        "~/Content/vendor/owl.carousel2/assets/owl.theme.default.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/css/style.default.min.css",

@@ -7,22 +7,14 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="~/Content/vendor/bootstrap/css/bootstrap.min.css">
-    <!-- Lightbox-->
-    <link rel="stylesheet" href="~/Content/vendor/lightbox2/css/lightbox.min.css">
-    <!-- Range slider-->
-    <link rel="stylesheet" href="~/Content/vendor/nouislider/nouislider.min.css">
-    <!-- Bootstrap select-->
-    <link rel="stylesheet" href="~/Content/vendor/bootstrap-select/css/bootstrap-select.min.css">
-    <!-- Owl Carousel-->
-    <link rel="stylesheet" href="~/Content/vendor/owl.carousel2/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/Content/vendor/owl.carousel2/assets/owl.theme.default.css">
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/vendor")
     <!-- Google fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
     <!-- Favicon-->
     <link rel="shortcut icon" href="~/Content/img/favicon.png">
     <!-- Tweaks for older IEs-->
@@ -51,7 +43,12 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown"><a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Home")">Homepage</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Shop", "Home")">Category</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail", "Home")">Product detail</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Cart", "Home")">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Checkout", "Home")">Checkout</a></div>
+                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Home")">Homepage</a>
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Shop", "Home")">Category</a>
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail", "Home")">Product detail</a>
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Cart", "Home")">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Checkout", "Home")">Checkout</a>
+                                </div>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto">
@@ -69,7 +66,11 @@
                 <div class="modal-content">
                     <div class="modal-body p-0">
                         <div class="row align-items-stretch">
-                            <div class="col-lg-6 p-lg-0"><a class="product-view d-block h-100 bg-cover bg-center" style="background: url(../../Content/img/product-5.jpg)" href="~/Content/img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a><a class="d-none" href="~/Content/img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a><a class="d-none" href="~/Content/img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a></div>
+                            <div class="col-lg-6 p-lg-0">
+                                <a class="product-view d-block h-100 bg-cover bg-center" style="background: url(../../Content/img/product-5.jpg)" href="~/Content/img/product-5.jpg" data-lightbox="productview" title="Red digital smartwatch"></a>
+                                <a class="d-none" href="~/Content/img/product-5-alt-1.jpg" title="Red digital smartwatch" data-lightbox="productview"></a>
+                                <a class="d-none" href="~/Content/img/product-5-alt-2.jpg" title="Red digital smartwatch" data-lightbox="productview"></a>
+                            </div>
                             <div class="col-lg-6">
                                 <button class="close p-4" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                 <div class="p-5 my-md-4">
@@ -155,6 +156,7 @@
         @Scripts.Render("~/bundles/nouislider")
         @Scripts.Render("~/bundles/bootstrap-select")
         @Scripts.Render("~/bundles/owl-carousel2")
+        @Scripts.Render("~/bundles/countries")
         @Scripts.Render("~/bundles/front")
         @RenderSection("scripts", required: false)
         <script>
