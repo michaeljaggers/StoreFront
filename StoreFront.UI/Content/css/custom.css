@@ -51,9 +51,13 @@ a:hover {
 .title-section h1.h2 {
     color: #59B7F5;
 }
+.services {
+    border: 2px solid #FFF;
+}
 
 .title-section {
     background-color: #444;
+    border: 2px solid #FFF;
 }
 
 .breadcrumb {
