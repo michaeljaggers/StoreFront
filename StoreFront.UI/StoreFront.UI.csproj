@@ -201,6 +201,8 @@
     <Content Include="Content\img\hero-banner-alt.jpg" />
     <Content Include="Content\img\hero-banner.jpg" />
     <Content Include="Content\img\hero-shop.jpg" />
+    <Content Include="Content\img\Logo.png" />
+    <Content Include="Content\img\nextgeneration.jpg" />
     <Content Include="Content\img\product-1.jpg" />
     <Content Include="Content\img\product-10.jpg" />
     <Content Include="Content\img\product-11.jpg" />

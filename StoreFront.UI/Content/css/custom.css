@@ -2,3 +2,76 @@ body {
     background-color: #121212;
     color: #FFF;
 }
+
+a:focus,
+a:hover {
+    color: #59B7F5;
+}
+
+.btn-outline-light:hover {
+    color: #111;
+}
+
+.gray-bg {
+    background: #444 !important;
+}
+
+.logo {
+    width: 100%;
+    max-width: 90px;
+    margin-top: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:active,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+    color: #59B7F5;
+}
+
+.navbar .dropdown-menu {
+    border-color: #59B7F5;
+}
+
+.navbar .dropdown-menu::before {
+    border-bottom-color: #59B7F5;
+}
+
+.hero {
+    min-height: 26rem;
+}
+
+.hero h1.h2,
+.title-section h1.h2 {
+    color: #59B7F5;
+}
+
+.title-section {
+    background-color: #444;
+}
+
+.breadcrumb {
+    background: #444;
+}
+
+.breadcrumb-item a {
+    color: #FFF;
+}
+
+.breadcrumb-item a:focus,
+.breadcrumb-item a:hover {
+    color: #59B7F5;
+}
+
+.services h6 {
+    color: #59B7F5;
+}
+
+
+
