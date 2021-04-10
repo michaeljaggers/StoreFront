@@ -60,6 +60,16 @@ a:hover {
     border: 2px solid #FFF;
 }
 
+.order-summary,
+.order-total {
+    border: 2px solid #FFF;
+}
+
+.order-summary h5,
+.order-total h5 {
+    color: #59B7F5;
+}
+
 .breadcrumb {
     background: #444;
 }
@@ -67,6 +77,8 @@ a:hover {
 .breadcrumb-item a {
     color: #FFF;
 }
+
+
 
 .breadcrumb-item a:focus,
 .breadcrumb-item a:hover {
