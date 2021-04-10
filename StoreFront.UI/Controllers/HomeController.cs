@@ -24,7 +24,7 @@ namespace StoreFront.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Shop()
+        public ActionResult Categories()
         {
             return View();
         }

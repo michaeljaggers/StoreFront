@@ -29,9 +29,6 @@ namespace StoreFront.UI
                         "~/Content/vendor/owl.carousel2/owl.carousel.min.js",
                         "~/Content/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
-
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                         "~/Content/vendor/bootstrap/js/bootstrap.min.js",
                         "~/Scripts/respond.js"));

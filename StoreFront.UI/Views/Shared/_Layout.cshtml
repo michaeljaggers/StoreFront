@@ -3,20 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title | Smok Electronic Cigarettes</title>
+    <title>Smok Electronic Cigarettes | @ViewBag.Title</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/vendor")
     <!-- Google fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="~/Content/img/favicon.png">
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
     <!-- Tweaks for older IEs-->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -36,7 +34,7 @@
                                 <!-- Link--><a class="nav-link active" href="@Url.Action("Index", "Home")">Home</a>
                             </li>
                             <li class="nav-item">
-                                <!-- Link--><a class="nav-link" href="@Url.Action("Shop", "Home")">Categories</a>
+                                <!-- Link--><a class="nav-link" href="@Url.Action("Categories", "Home")">Categories</a>
                             </li>
                             <li class="nav-item">
                                 <!-- Link--><a class="nav-link" href="@Url.Action("Detail", "Home")">Product detail</a>
@@ -45,7 +43,7 @@
                                 <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                                 <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
                                     <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Home")">Homepage</a>
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Shop", "Home")">Categories</a>
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Categories", "Home")">Categories</a>
                                     <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail", "Home")">Product detail</a>
                                     <a class="dropdown-item border-0 transition-link" href="@Url.Action("Cart", "Home")">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Checkout", "Home")">Checkout</a>
                                 </div>
@@ -153,7 +151,6 @@
         @Scripts.Render("~/bundles/nouislider")
         @Scripts.Render("~/bundles/bootstrap-select")
         @Scripts.Render("~/bundles/owl-carousel2")
-        @Scripts.Render("~/bundles/countries")
         @Scripts.Render("~/bundles/front")
         @RenderSection("scripts", required: false)
         <script>

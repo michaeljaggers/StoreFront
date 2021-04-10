@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Cart";
+    ViewBag.Title = " Shopping Cart";
 }
 
 <div class="container">
@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
                             <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
                         </ol>
                     </nav>
                 </div>
@@ -95,7 +95,7 @@
                 <!-- CART NAV-->
                 <div class="gray-bg px-4 py-3">
                     <div class="row align-items-center text-center">
-                        <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-white btn-sm" href="@Url.Action("Shop", "Home")"><i class="fas fa-long-arrow-alt-left mr-2"> </i class="text-white">Continue shopping</a></div>
+                        <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-white btn-sm" href="@Url.Action("Categories", "Home")"><i class="fas fa-long-arrow-alt-left mr-2"> </i class="text-white">Continue shopping</a></div>
                         <div class="col-md-6 text-md-right"><a class="btn btn-outline-light btn-sm" href="@Url.Action("Checkout", "Home")">Procceed to checkout<i class="fas fa-long-arrow-alt-right ml-2"></i></a></div>
                     </div>
                 </div>

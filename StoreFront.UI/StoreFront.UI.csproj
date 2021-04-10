@@ -197,7 +197,7 @@
     <Content Include="Content\img\category-2.jpg" />
     <Content Include="Content\img\customer-1.png" />
     <Content Include="Content\img\customer-2.png" />
-    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\favicon.ico" />
     <Content Include="Content\img\hero-banner-alt.jpg" />
     <Content Include="Content\img\hero-banner.jpg" />
     <Content Include="Content\img\hero-shop.jpg" />
@@ -590,7 +590,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_OriginalLayout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -643,7 +642,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\js\countries.json" />
     <Content Include="Views\Shared\OriginalLayout.cshtml" />
-    <Content Include="Views\Home\Shop.cshtml" />
+    <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
