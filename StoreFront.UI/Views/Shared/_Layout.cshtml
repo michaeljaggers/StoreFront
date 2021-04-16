@@ -51,7 +51,7 @@
                         </ul>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a class="nav-link" href="@Url.Action("Cart", "Home")"> <i class="fas fa-dolly-flatbed mr-1 text-gray"></i>Cart<small class="text-gray">(2)</small></a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>
+                            @*<li class="nav-item"><a class="nav-link" href="#"> <i class="far fa-heart mr-1"></i><small class="text-gray"> (0)</small></a></li>*@
                             
                             @Html.Partial("_LoginPartial")
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
@@ -145,7 +145,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+                <div class="pt-4" style="border-color: #1d1d1d !important">
                     <div class="row">
                         <div class="col-lg-6">
                             <p class="small text-muted mb-0">&copy; @DateTime.Now.Year Smok Inc. All rights reserved.</p>

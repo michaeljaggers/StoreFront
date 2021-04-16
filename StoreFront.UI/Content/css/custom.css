@@ -3,8 +3,29 @@ body {
     color: #FFF;
 }
 
+a {
+    color: #59B7F5;
+}
+
 a:focus,
 a:hover {
+    color: #59B7F5;
+}
+
+.table {
+    color: #FFF;
+}
+
+hr {
+    border-top: 1px solid rgba(250,250,250,.1);
+}
+
+.btn:not(.btn-link) {
+    color: #FFF;
+    border: 1px solid #FFF;
+}
+
+.btn:hover {
     color: #59B7F5;
 }
 
@@ -14,6 +35,14 @@ a:hover {
 
 .gray-bg {
     background: #444 !important;
+}
+
+header {
+    border-bottom: 1px solid rgba(250,250,250,.1);
+}
+
+footer {
+    border-top: 1px solid rgba(250,250,250,.1);
 }
 
 .logo {
