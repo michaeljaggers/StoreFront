@@ -29,12 +29,20 @@ hr {
     color: #59B7F5;
 }
 
+.btn-dark:hover {
+    background-color: #121212;
+}
+
 .btn-outline-light:hover {
-    color: #111;
+    color: #121212;
 }
 
 .gray-bg {
     background: #444 !important;
+}
+
+.black-bg {
+    background: #121212;
 }
 
 header {
@@ -76,6 +84,10 @@ footer {
     display: inline-flex;
 }
 
+.modal-content {
+    border: none;
+}
+
 .hero {
     min-height: 26rem;
 }
@@ -91,6 +103,16 @@ footer {
 .title-section {
     background-color: #444;
     border: 2px solid #FFF;
+}
+
+.product-overlay .btn-dark,
+.product-overlay .btn-outline-dark {
+    background-color: transparent;
+}
+
+.product-overlay .btn-dark:hover,
+.product-overlay .btn-outline-dark:hover {
+    background-color: #121212;
 }
 
 .order-summary,
@@ -122,8 +144,8 @@ footer {
 }
 
 .nav-tabs .nav-item .nav-link {
-    background: #111;
-    background-color: #111;
+    background: #121212;
+    background-color: #121212;
     color: #FFF;
     border-color: #FFF;
 }
@@ -133,7 +155,7 @@ footer {
 .nav-tabs .nav-link:hover {
     background: #FFF;
     background-color: #FFF;
-    color: #111;
+    color: #121212;
 }
 
 
