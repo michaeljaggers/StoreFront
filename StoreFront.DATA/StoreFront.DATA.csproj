@@ -62,6 +62,8 @@
     <Compile Include="Flavor.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\CategoriesMetadata.cs" />
+    <Compile Include="Metadata\CustomerMetadata.cs" />
     <Compile Include="Nicotine.cs">
       <DependentUpon>StoreFrontModel.tt</DependentUpon>
     </Compile>
