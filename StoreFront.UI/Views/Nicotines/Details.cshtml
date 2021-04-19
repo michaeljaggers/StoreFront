@@ -1,0 +1,27 @@
+﻿@model StoreFront.DATA.Nicotine
+
+@{
+    ViewBag.Title = "Nicotine Strength Details";
+}
+
+<div class="container py-5">
+    <h2>@ViewBag.Title</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StrengthMg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StrengthMg)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.NicotineID }) |
+        @Html.ActionLink("Back to Nicotine Strengths", "Index")
+    </p>
+</div>

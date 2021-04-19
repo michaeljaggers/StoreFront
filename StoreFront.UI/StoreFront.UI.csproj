@@ -171,8 +171,11 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\FlavorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NicotinesController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -667,6 +670,21 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Flavors\Create.cshtml" />
+    <Content Include="Views\Flavors\Delete.cshtml" />
+    <Content Include="Views\Flavors\Details.cshtml" />
+    <Content Include="Views\Flavors\Edit.cshtml" />
+    <Content Include="Views\Flavors\Index.cshtml" />
+    <Content Include="Views\Nicotines\Create.cshtml" />
+    <Content Include="Views\Nicotines\Delete.cshtml" />
+    <Content Include="Views\Nicotines\Details.cshtml" />
+    <Content Include="Views\Nicotines\Edit.cshtml" />
+    <Content Include="Views\Nicotines\Index.cshtml" />
+    <Content Include="Views\Orders\Create.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

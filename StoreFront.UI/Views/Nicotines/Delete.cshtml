@@ -1,0 +1,34 @@
+﻿@model StoreFront.DATA.Nicotine
+
+@{
+    ViewBag.Title = "Delete Nicotine Strength";
+}
+
+<div class="container py-5">
+    <h2>@ViewBag.Title</h2>
+
+    <h3>Are you sure you want to delete this nicotine stength?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StrengthMg)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StrengthMg)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to Nicotine Strengths", "Index")
+            </div>
+        }
+    </div>
+</div>
