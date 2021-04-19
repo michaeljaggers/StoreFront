@@ -23,6 +23,9 @@ namespace StoreFront.DATA
         [Required]
         [DisplayFormat(DataFormatString = "{0}%")]
         public float Discount { get; set; }
+
+        [ScaffoldColumn(false)]
+        public int OrderDetailID { get; set; }
     }
 
     [MetadataType(typeof(OrderDetailMetadata))]

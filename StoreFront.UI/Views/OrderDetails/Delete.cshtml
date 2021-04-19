@@ -1,0 +1,58 @@
+﻿@model StoreFront.DATA.OrderDetail
+
+@{
+    ViewBag.Title = "Delete Order Details";
+}
+
+<div class="container py-5">
+    <h2>@ViewBag.Title</h2>
+
+    <h3>Are you sure you want to delete these order details?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Product.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Order.ShipAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Order.ShipAddress)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to Order Details List", "Index")
+            </div>
+        }
+    </div>
+</div>
