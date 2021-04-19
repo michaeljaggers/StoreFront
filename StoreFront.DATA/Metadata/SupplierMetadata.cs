@@ -13,26 +13,27 @@ namespace StoreFront.DATA
         public int SupplierID { get; set; }
 
         [Required]
+        [Display(Name = "Supplier Name")]
         [StringLength(40, ErrorMessage = "Maximum length is 40 characters.")]
         public string Company { get; set; }
 
-        [Display(Name = "Company Street Address")]
+        [Display(Name = "Supplier Street Address")]
         [StringLength(60, ErrorMessage = "Maximum length is 60 characters.")]
         public string Address { get; set; }
 
-        [Display(Name = "Company City")]
+        [Display(Name = "Supplier City")]
         [StringLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string City { get; set; }
 
-        [Display(Name = "Company State")]
+        [Display(Name = "Supplier State")]
         [StringLength(15, ErrorMessage = "Maximum length is 15 characters.")]
         public string State { get; set; }
 
-        [Display(Name = "Company Zip Code")]
+        [Display(Name = "Supplier Zip Code")]
         [StringLength(10, ErrorMessage = "Maximum length is 10 characters.")]
         public string Zip { get; set; }
 
-        [Display(Name = "Company Country")]
+        [Display(Name = "Supplier Country")]
         [StringLength(15, ErrorMessage = "Maximum length is 15 characters.")]
         public string Country { get; set; }
 
