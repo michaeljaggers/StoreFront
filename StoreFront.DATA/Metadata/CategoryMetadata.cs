@@ -10,6 +10,7 @@ namespace StoreFront.DATA
     public class CategoryMetadata
     {
         [ScaffoldColumn(false)]
+        [Display(Name = "Category ID")]
         public int CategoryID { get; set; }
 
         [Required]

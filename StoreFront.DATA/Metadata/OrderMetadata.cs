@@ -10,6 +10,7 @@ namespace StoreFront.DATA
     public class OrderMetadata
     {
         [ScaffoldColumn(false)]
+        [Display(Name = "Order Number")]
         public int OrderID { get; set; }
 
         [Required]

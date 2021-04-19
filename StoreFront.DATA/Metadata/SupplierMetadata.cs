@@ -10,6 +10,7 @@ namespace StoreFront.DATA
     public class SupplierMetadata
     {
         [ScaffoldColumn(false)]
+        [Display(Name = "Supplier ID")]
         public int SupplierID { get; set; }
 
         [Required]
