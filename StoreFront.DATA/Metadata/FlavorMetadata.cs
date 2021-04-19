@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoreFront
+namespace StoreFront.DATA
 {
-    public class CategoriesMetadata
+    public class FlavorMetadata
     {
         [ScaffoldColumn(false)]
-        public int CategoryID { get; set; }
+        public int FlavorID { get; set; }
 
         [Required]
-        [Display(Name = "Category")]
-        [StringLength(30, ErrorMessage = "Maximum length is 30 characters.")]
+        [Display(Name = "Flavor")]
+        [StringLength(20, ErrorMessage = "Maximum length is 20 characters.")]
         public string Name { get; set; }
 
         public string Image { get; set; }
@@ -22,6 +22,6 @@ namespace StoreFront
         public string Description { get; set; }
     }
 
-    [MetadataType(typeof(CategoriesMetadata))]
-    public partial class Categories { }
+    [MetadataType(typeof(FlavorMetadata))]
+    public partial class Flavor { }
 }

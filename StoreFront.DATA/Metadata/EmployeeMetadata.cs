@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace StoreFront.DATA
 {
-    public class CustomerMetadata
+    public class EmployeeMetadata
     {
         [ScaffoldColumn(false)]
-        public int CustomerID { get; set; }
+        public int EmployeeID { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
@@ -21,6 +21,15 @@ namespace StoreFront.DATA
         [Display(Name = "Last Name")]
         [StringLength(30, ErrorMessage = "Maximum length is 30 characters.")]
         public string LastName { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c2}")]
+        public Nullable<decimal> Wage { get; set; }
+
+        [Display(Name = "Hire Date")]
+        public Nullable<System.DateTime> HireDate { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        public Nullable<System.DateTime> DOB { get; set; }
 
         [Display(Name = "Street Address")]
         [StringLength(60, ErrorMessage = "Maximum length is 60 characters.")]
@@ -47,6 +56,6 @@ namespace StoreFront.DATA
         public string Phone { get; set; }
     }
 
-    [MetadataType(typeof(CustomerMetadata)]
-    public partial class Customer { }
+    [MetadataType(typeof(EmployeeMetadata))]
+    public partial class Employee { }
 }
