@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1340
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.UI", "StoreFront.UI\StoreFront.UI.csproj", "{E42BC748-2486-4FA2-B53C-DD7561100012}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.DATA", "StoreFront.DATA\StoreFront.DATA.csproj", "{62D86A07-933D-465F-8C42-02767A11C014}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreFront.DATA", "StoreFront.DATA\StoreFront.DATA.csproj", "{3D96B667-809C-4073-8407-6750DF7F4D42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E42BC748-2486-4FA2-B53C-DD7561100012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E42BC748-2486-4FA2-B53C-DD7561100012}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E42BC748-2486-4FA2-B53C-DD7561100012}.Release|Any CPU.Build.0 = Release|Any CPU
-		{62D86A07-933D-465F-8C42-02767A11C014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{62D86A07-933D-465F-8C42-02767A11C014}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{62D86A07-933D-465F-8C42-02767A11C014}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{62D86A07-933D-465F-8C42-02767A11C014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D96B667-809C-4073-8407-6750DF7F4D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D96B667-809C-4073-8407-6750DF7F4D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D96B667-809C-4073-8407-6750DF7F4D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D96B667-809C-4073-8407-6750DF7F4D42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

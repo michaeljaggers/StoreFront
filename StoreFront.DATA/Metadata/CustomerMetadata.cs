@@ -47,6 +47,6 @@ namespace StoreFront.DATA
         public string Phone { get; set; }
     }
 
-    [MetadataType(typeof(CustomerMetadata)]
+    [MetadataType(typeof(CustomerMetadata))]
     public partial class Customer { }
 }

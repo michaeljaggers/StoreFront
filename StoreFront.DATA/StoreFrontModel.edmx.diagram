@@ -4,24 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5377bbdb398742fea73b963b46e3b065" Name="Diagram1">
+      <Diagram DiagramId="d9b5bf1212364ac9a617880edec93694" Name="Diagram1">
         <EntityTypeShape EntityType="StoreFrontModel.Category" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Customer" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Employee" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Flavor" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Nicotine" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StoreFrontModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Order" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Shipper" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="StoreFrontModel.Supplier" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="StoreFrontModel.OrderDetail" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Orders_Customers" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_Flavors" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_Nicotine" ManuallyRouted="false" />
+        <AssociationConnector Association="StoreFrontModel.FK_OrderDetail_Products" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Orders_Shippers" ManuallyRouted="false" />
-        <AssociationConnector Association="StoreFrontModel.FK_OrderDetails_Products" ManuallyRouted="false" />
         <AssociationConnector Association="StoreFrontModel.FK_Products_Suppliers" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
