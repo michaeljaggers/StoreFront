@@ -1,0 +1,107 @@
+﻿@model StoreFront.DATA.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<div class="container py-5">
+    <h2>@ViewBag.Title</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InStockCt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InStockCt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OnOrderCt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OnOrderCt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReorderCt)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReorderCt)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Flavor.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Flavor.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Nicotine.NicotineID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nicotine.NicotineID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Supplier.Company)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Supplier.Company)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+        @Html.ActionLink("Back to Products", "Index")
+    </p>
+</div>
