@@ -9,7 +9,6 @@ namespace StoreFront.DATA
 {
     public class ShipperMetadata
     {
-        [ScaffoldColumn(false)]
         [Display(Name = "Shipper ID")]
         public int ShipperID { get; set; }
 

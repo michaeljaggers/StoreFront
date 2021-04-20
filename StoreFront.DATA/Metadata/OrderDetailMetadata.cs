@@ -24,7 +24,6 @@ namespace StoreFront.DATA
         [DisplayFormat(DataFormatString = "{0}%")]
         public float Discount { get; set; }
 
-        [ScaffoldColumn(false)]
         [Display(Name = "Order Detail ID")]
         public int OrderDetailID { get; set; }
     }

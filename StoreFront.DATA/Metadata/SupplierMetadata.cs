@@ -9,12 +9,11 @@ namespace StoreFront.DATA
 {
     public class SupplierMetadata
     {
-        [ScaffoldColumn(false)]
         [Display(Name = "Supplier ID")]
         public int SupplierID { get; set; }
 
         [Required]
-        [Display(Name = "Supplier Name")]
+        [Display(Name = "Supplier")]
         [StringLength(40, ErrorMessage = "Maximum length is 40 characters.")]
         public string Company { get; set; }
 

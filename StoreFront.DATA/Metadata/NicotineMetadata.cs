@@ -9,7 +9,6 @@ namespace StoreFront.DATA
 {
     public class NicotineMetadata
     {
-        [ScaffoldColumn(false)]
         [Display(Name = "Nicotine ID")]
         public int NicotineID { get; set; }
 

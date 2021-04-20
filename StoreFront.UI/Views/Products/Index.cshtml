@@ -19,21 +19,6 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.InStockCt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OnOrderCt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReorderCt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Category.Name)
             </th>
             <th>
@@ -42,10 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Nicotine.NicotineID)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Supplier.Company)
-            </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
 
         @foreach (var item in Model)
@@ -58,21 +40,6 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.InStockCt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OnOrderCt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReorderCt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
                 <td>
@@ -80,9 +47,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Nicotine.NicotineID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Supplier.Company)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |

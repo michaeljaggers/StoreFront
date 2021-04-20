@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace StoreFront.DATA
 {
     public class EmployeeMetadata
-    {
-        [ScaffoldColumn(false)]
+    { 
         [Display(Name = "Employee ID")]
         public int EmployeeID { get; set; }
 

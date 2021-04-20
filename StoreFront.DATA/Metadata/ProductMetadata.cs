@@ -9,12 +9,11 @@ namespace StoreFront.DATA
 {
     public class ProductMetadata
     {
-        [ScaffoldColumn(false)]
         [Display(Name = "Product ID")]
         public int ProductID { get; set; }
 
         [Required]
-        [Display(Name = "Product Name")]
+        [Display(Name = "Product")]
         [StringLength(40, ErrorMessage = "Maximum length is 40 characters.")]
         public string Name { get; set; }
 
@@ -33,13 +32,13 @@ namespace StoreFront.DATA
         public decimal Price { get; set; }
 
         [Required]
-        [Display(Name = "Current Inventory")]
+        [Display(Name = "Inventory")]
         public short InStockCt { get; set; }
 
-        [Display(Name = "Product On Order")]
+        [Display(Name = "On Order")]
         public Nullable<short> OnOrderCt { get; set; }
 
-        [Display(Name = "Minimum Required Inventory")]
+        [Display(Name = "Min. Req. Inventory")]
         public Nullable<short> ReorderCt { get; set; }
 
         [Display(Name = "Supplier")]
