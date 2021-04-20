@@ -8,14 +8,12 @@
     <h2>@ViewBag.Title</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New Strength", "Create")
     </p>
     <table class="table">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.StrengthMg)
-            </th>
-            <th></th>
+            <th>Strengths</th>
+            <th>Actions</th>
         </tr>
 
         @foreach (var item in Model)
