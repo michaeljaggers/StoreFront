@@ -8,7 +8,7 @@
     <h2>@ViewBag.Title</h2>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New Shipping Partner", "Create")
     </p>
     <table class="table">
         <tr>
@@ -16,18 +16,8 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContactFirst)
+                Actions
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ContactLast)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th></th>
         </tr>
 
         @foreach (var item in Model)
@@ -35,18 +25,6 @@
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactFirst)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ContactLast)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ShipperID }) |
