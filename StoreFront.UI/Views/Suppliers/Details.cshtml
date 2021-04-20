@@ -1,7 +1,7 @@
 ﻿@model StoreFront.DATA.Supplier
 
 @{
-    ViewBag.Title = "Supplier Details";
+    ViewBag.Title = "Product Supplier Details";
 }
 
 <div class="container py-5">
@@ -93,7 +93,7 @@
         </dl>
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.SupplierID }) |
-        @Html.ActionLink("Back to Suppliers", "Index")
+        @Html.ActionLink("Edit Supplier", "Edit", new { id = Model.SupplierID }) |
+        @Html.ActionLink("Back to  Product Suppliers", "Index")
     </p>
 </div>
