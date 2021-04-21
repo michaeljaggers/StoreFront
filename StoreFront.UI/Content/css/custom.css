@@ -158,6 +158,10 @@ footer {
     color: #121212;
 }
 
+#contactForm h2 {
+    margin-left: 15px;
+}
+
 #contactForm input[type="submit"] {
     background-color: transparent;
     border-color: #59B7F5;

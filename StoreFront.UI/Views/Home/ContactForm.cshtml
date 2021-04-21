@@ -1,15 +1,11 @@
 ﻿@model StoreFront.UI.Models.ContactViewModel
 
-@{ 
-    ViewBag.Title = "Contact Us";
-}
-
-<div id="contactForm" class="col-lg-12">
-    <h2>@ViewBag.Title</h2>
-    @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "contactForm" }, new { id = "contact-form", @class = "contact-form col-lg-8" }))
+<div id="contactForm" class="col-lg-12 py-5">
+    @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "contactForm" }, new { id = "contact-form", @class = "contact-form col-lg-8 mx-auto" }))
     {
         @Html.AntiForgeryToken()
-
+        <h4 class="text-center">Send a message.</h4>
+        <hr />
         if (ViewBag.Success != null)
         {
             <div class="alert-success">@Html.Raw(ViewBag.Success)</div>
