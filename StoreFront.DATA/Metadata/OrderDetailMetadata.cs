@@ -9,6 +9,9 @@ namespace StoreFront.DATA
 {
     public class OrderDetailMetadata
     {
+        [Display(Name = "Order Detail ID")]
+        public int OrderDetailID { get; set; }
+
         [Required]
         [Display(Name = "Order Number")]
         public int OrderID { get; set; }
@@ -23,9 +26,6 @@ namespace StoreFront.DATA
         [Required]
         [DisplayFormat(DataFormatString = "{0}%")]
         public float Discount { get; set; }
-
-        [Display(Name = "Order Detail ID")]
-        public int OrderDetailID { get; set; }
     }
 
     [MetadataType(typeof(OrderDetailMetadata))]
