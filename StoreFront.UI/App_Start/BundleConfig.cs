@@ -10,7 +10,7 @@ namespace StoreFront.UI
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Content/vendor/jquery/jquery.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            bundles.Add(new ScriptBundle("~/Scripts/jquery.validate*").Include(
                         "~/Scripts/jquery.validate*"));
 
             bundles.Add(new ScriptBundle("~/bundles/lightbox").Include(
@@ -40,6 +40,11 @@ namespace StoreFront.UI
                         "~/Content/vendor/nouislider/nouislider.min.css",
                         "~/Content/vendor/owl.carousel2/assets/owl.carousel.min.css",
                         "~/Content/vendor/owl.carousel2/assets/owl.theme.default.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/contact").Include(
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js",
+                        "~/Scripts/jquery.validate*"));
+
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                         "~/Content/css/style.default.min.css",

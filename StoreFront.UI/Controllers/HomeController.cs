@@ -31,35 +31,40 @@ namespace StoreFront.UI.Controllers
         [HttpPost]
         public ActionResult Contact(ContactViewModel cvm)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                string message = $"You have received a new contact form submisson.<br /><br />" +
-                                 $"Name: {cvm.Name}<br />" +
-                                 $"Email: {cvm.Email}<br />" +
-                                 $"Message:<br /><br />" +
-                                 $"{cvm.Message}";
-
-                MailMessage mm = new MailMessage("admin@michaeljaggers.net", "michaeljaggers@outlook.com", "New contact form submission.", message);
-                mm.IsBodyHtml = true;
-                mm.ReplyToList.Add(cvm.Email);
-                mm.Priority = MailPriority.High;
-
-                SmtpClient client = new SmtpClient("mail.michaeljaggers.net");
-                client.Credentials = new NetworkCredential("admin@michaeljaggers.net", "****");
-
-                try
-                {
-                    client.Send(mm);
-                }
-                catch (Exception e)
-                {
-                    ViewBag.ErrorMessage = $"Your message could not be sent at this time.  Error: {e.Message}";
-                }
-
-                return View("EmailConfirmation");
+                return View(cvm);
             }
 
-            return View(cvm);
+            string message = $"You have received a new contact form submisson.<br /><br />" +
+                                $"Name: {cvm.Name}<br />" +
+                                $"Email: {cvm.Email}<br />" +
+                                $"Message:<br /><br />" +
+                                $"{cvm.Message}";
+
+            MailMessage mm = new MailMessage("admin@michaeljaggers.net", "michaeljaggers@outlook.com", "New contact form submission.", message);
+            mm.IsBodyHtml = true;
+            mm.ReplyToList.Add(cvm.Email);
+            mm.Priority = MailPriority.High;
+
+            SmtpClient client = new SmtpClient("mail.michaeljaggers.net");
+            client.Credentials = new NetworkCredential("admin@michaeljaggers.net", "****");
+
+            try
+            {
+                client.Send(mm);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = $"<div class=\"alert alert-danger\" role=\"alert\">Your message cannot be sent at this time.<br />" +
+                            $"Error: {ex.Message}</div>";
+
+                return PartialView("ContactForm", cvm);
+            }
+
+            ModelState.Clear();
+            ViewBag.Success = $"<div class=\"alert alert-success\" role=\"alert\">Message sent.</div>";
+            return PartialView("ContactForm");
         }
 
         [HttpGet]

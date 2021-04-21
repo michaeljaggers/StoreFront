@@ -158,4 +158,14 @@ footer {
     color: #121212;
 }
 
+#contactForm input[type="submit"] {
+    background-color: transparent;
+    border-color: #59B7F5;
+    color: #FFF;
+}
+
+#contactForm input[type="submit"]:hover {
+    background-color: #59B7F5;
+    border-color: #59B7F5;
+}
 
