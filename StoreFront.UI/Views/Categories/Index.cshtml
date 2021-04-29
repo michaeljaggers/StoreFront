@@ -10,27 +10,40 @@
     <p>
         @Html.ActionLink("Create New Category", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>Actions</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <table class="table data-table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>Actions</th>
             </tr>
-        }
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CategoryID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CategoryID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CategoryID })
+                    </td>
+                </tr>
+            }
+        </tbody>
 
     </table>
 </div>
+
+@section scripts {
+    <script>
+        // Applying jQuery DataTables plugin
+        $(document).ready(function () {
+            $(".data-table").DataTable();
+        });
+    </script>
+}

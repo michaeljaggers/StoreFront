@@ -33,13 +33,17 @@ namespace StoreFront.UI
                         "~/Content/vendor/bootstrap/js/bootstrap.min.js",
                         "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/data-tables").Include(
+                        "~/Scripts/DataTables/jquery.dataTables.min.js"));
+
             bundles.Add(new StyleBundle("~/Content/vendor").Include(
                         "~/Content/vendor/bootstrap/css/bootstrap.min.css",
                         "~/Content/vendor/bootstrap-select/css/bootstrap-select.min.css",
                         "~/Content/vendor/lightbox2/css/lightbox.min.css",
                         "~/Content/vendor/nouislider/nouislider.min.css",
                         "~/Content/vendor/owl.carousel2/assets/owl.carousel.min.css",
-                        "~/Content/vendor/owl.carousel2/assets/owl.theme.default.min.css"));
+                        "~/Content/vendor/owl.carousel2/assets/owl.theme.default.min.css",
+                        "~/Content/DataTables/css/jquery.dataTables.jqueryui.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/contact").Include(
                         "~/Scripts/jquery.unobtrusive-ajax.min.js",
@@ -47,6 +51,7 @@ namespace StoreFront.UI
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/DataTables/css/jquery.dataTables.min.css",
                         "~/Content/css/style.default.min.css",
                         "~/Content/css/custom.css"));
         }

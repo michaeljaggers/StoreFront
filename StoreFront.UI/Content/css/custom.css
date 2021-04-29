@@ -14,6 +14,11 @@ a:hover {
 
 .table {
     color: #FFF;
+    background-color: #121212;
+}
+
+table.dataTable tbody tr {
+    background-color: #121212;
 }
 
 hr {
