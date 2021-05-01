@@ -10,41 +10,52 @@
     <p>
         @Html.ActionLink("Create New Order", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShipDate)
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <table class="table data-table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShipDate)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShipDate)
+                </th>
+                <th>
+                    Actions
+                </th>
             </tr>
-        }
-
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
+
+@section scripts {
+    <script>
+        // Applying jQuery DataTables plugin
+        $(document).ready(function () {
+            $(".data-table").DataTable();
+        });
+    </script>
+}

@@ -10,25 +10,36 @@
     <p>
         @Html.ActionLink("Create New Strength", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>Strengths</th>
-            <th>Actions</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <table class="table data-table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrengthMg)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.NicotineID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.NicotineID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.NicotineID })
-                </td>
+                <th>Strengths</th>
+                <th>Actions</th>
             </tr>
-        }
-
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StrengthMg)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.NicotineID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.NicotineID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.NicotineID })
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
+
+@section scripts {
+    <script>
+        // Applying jQuery DataTables plugin
+        $(document).ready(function () {
+            $(".data-table").DataTable();
+        });
+    </script>
+}
