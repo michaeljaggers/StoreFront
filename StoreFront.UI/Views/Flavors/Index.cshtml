@@ -16,6 +16,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -25,6 +28,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <img src="~/Content/imgstore/flavors/t_@item.Image" alt="Flavor Image" title="@item.Name" style="max-width: 100px;" />
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.FlavorID }) |

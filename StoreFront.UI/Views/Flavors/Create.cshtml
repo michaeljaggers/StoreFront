@@ -7,13 +7,14 @@
 <div class="container py-5">
     <h2>@ViewBag.Title</h2>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create", "Flavors", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Image)
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -25,8 +26,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    <input type="file" name="flavorImage" />
                 </div>
             </div>
 
