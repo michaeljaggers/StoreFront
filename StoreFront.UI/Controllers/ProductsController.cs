@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -52,10 +53,52 @@ namespace StoreFront.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description")] Product product, HttpPostedFileBase productImage)
         {
             if (ModelState.IsValid)
             {
+
+                #region File Upload
+                // Default image if none provided
+                string file = "noImage.png";
+
+                // Check if user uploaded an image
+                if (productImage != null)
+                {
+                    // Preserve the file name for the image
+                    file = productImage.FileName;
+
+                    // Isolate the extension
+                    string ext = file.Substring(file.LastIndexOf('.'));
+
+                    // Create an array of good extensions
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    //Check if the uploaded file extension is in our list of good extensions & check that the file size is <= 4MB max imposed by ASP.net
+                    if (goodExts.Contains(ext.ToLower()) && productImage.ContentLength <= 4194304)
+                    {
+                        // Create a new file name (using a GUID)
+                        file = Guid.NewGuid() + ext;
+
+                        #region Resize Image
+                        string savePath = Server.MapPath("~/Content/imgstore/products/");
+
+                        Image convertedImage = Image.FromStream(productImage.InputStream);
+
+                        int maxImageSize = 500;
+
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                        #endregion
+                    }
+                }
+
+                // No matter what, update the image url with the value of the file variable
+                product.Image = file;
+
+                #endregion
+
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,10 +135,57 @@ namespace StoreFront.UI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description")] Product product, HttpPostedFileBase productImage)
         {
             if (ModelState.IsValid)
             {
+
+                #region File Edit
+                // Default image if none provided
+                string file = "noImage.png";
+
+                // Check if user uploaded an image
+                if (productImage != null)
+                {
+                    // Preserve the file name for the image
+                    file = productImage.FileName;
+
+                    // Isolate the extension
+                    string ext = file.Substring(file.LastIndexOf('.'));
+
+                    // Create an array of good extensions
+                    string[] goodExts = { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    //Check if the uploaded file extension is in our list of good extensions & check that the file size is <= 4MB max imposed by ASP.net
+                    if (goodExts.Contains(ext.ToLower()) && productImage.ContentLength <= 4194304)
+                    {
+                        // Create a new file name (using a GUID)
+                        file = Guid.NewGuid() + ext;
+
+                        #region Resize Image
+                        string savePath = Server.MapPath("~/Content/imgstore/products/");
+
+                        Image convertedImage = Image.FromStream(productImage.InputStream);
+
+                        int maxImageSize = 500;
+
+                        int maxThumbSize = 100;
+
+                        ImageUtility.ResizeImage(savePath, file, convertedImage, maxImageSize, maxThumbSize);
+                        #endregion
+
+                        if (product.Image != null && product.Image != "noImage.png")
+                        {
+                            string path = Server.MapPath("~/Content/imgstore/products/");
+                            ImageUtility.Delete(path, product.Image);
+                        }
+                    }
+
+                    // No matter what, update the image url with the value of the file variable
+                    product.Image = file;
+                }
+                #endregion
+
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -128,6 +218,10 @@ namespace StoreFront.UI.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
+
+            string path = Server.MapPath("~/Content/imgstore/products/");
+            ImageUtility.Delete(path, product.Image);
+
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");

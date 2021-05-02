@@ -14,6 +14,8 @@
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ProductID)
+            @Html.HiddenFor(model => model.Image)
             <div class="form-group">
                 @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -89,8 +91,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                    <img src="~/Content/imgstore/products/t_@Model.Image" style="max-width: 100px; display: block;" class="mb-2" />
+                    <input type="file" name="productImage" />
                 </div>
             </div>
 

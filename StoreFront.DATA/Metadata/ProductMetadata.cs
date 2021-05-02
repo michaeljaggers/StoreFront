@@ -28,7 +28,7 @@ namespace StoreFront.DATA
         public Nullable<int> FlavorID { get; set; }
 
         [Required]
-        [DisplayFormat(DataFormatString = "{0}:c2")]
+        [DisplayFormat(DataFormatString = "{0:c}")]
         public decimal Price { get; set; }
 
         [Required]
