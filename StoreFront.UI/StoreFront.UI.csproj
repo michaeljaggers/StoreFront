@@ -192,6 +192,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\ImageUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\custom.css" />
@@ -357,6 +358,12 @@
     <Content Include="Content\icons\demo.html" />
     <Content Include="Content\icons\orion-svg-sprite.svg" />
     <Content Include="Content\icons\styles.css" />
+    <Content Include="Content\imgstore\categories\t_noImage.png" />
+    <Content Include="Content\imgstore\categories\noImage.png" />
+    <Content Include="Content\imgstore\flavors\noImage.png" />
+    <Content Include="Content\imgstore\flavors\t_noImage.png" />
+    <Content Include="Content\imgstore\products\noImage.png" />
+    <Content Include="Content\imgstore\products\t_noImage.png" />
     <Content Include="Content\img\cat-img-1.jpg" />
     <Content Include="Content\img\cat-img-2.jpg" />
     <Content Include="Content\img\cat-img-3.jpg" />
