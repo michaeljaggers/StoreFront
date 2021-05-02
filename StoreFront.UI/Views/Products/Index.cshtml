@@ -29,7 +29,7 @@
                     @Html.DisplayNameFor(model => model.Flavor.Name)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Nicotine.NicotineID)
+                    @Html.DisplayNameFor(model => model.Nicotine.StrengthMg)
                 </th>
                 <th>Actions</th>
             </tr>
@@ -54,7 +54,7 @@
                         @Html.DisplayFor(modelItem => item.Flavor.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nicotine.NicotineID)
+                        @Html.DisplayFor(modelItem => item.Nicotine.StrengthMg)
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
