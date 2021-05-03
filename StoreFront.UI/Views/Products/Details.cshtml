@@ -100,6 +100,16 @@
 
         </dl>
     </div>
+    <div>
+        <p>Quantity: 
+            @using(Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
+            {
+                @Html.HiddenFor(p => p.ProductID)
+                @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 75px; display: inline;" })
+                <input type="submit" name="qty" value="Add To Cart" class="btn btn-primary" />
+            }
+        </p>
+    </div>
     <p>
         @Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductID }) |
         @Html.ActionLink("Back to Products", "Index")

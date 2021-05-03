@@ -180,6 +180,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\ShippersController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +188,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\CartItemViewModel.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -970,6 +972,7 @@
     <Folder Include="Content\vendor\node-sass\src\" />
     <Folder Include="Content\vendor\node-sass\test\" />
     <Folder Include="Content\vendor\nouislider\distribute\" />
+    <Folder Include="Views\ShoppingCart\" />
     <Folder Include="_Archive\vendor\jquery.cookie\test\" />
     <Folder Include="_Archive\vendor\node-sass\src\" />
     <Folder Include="_Archive\vendor\node-sass\test\" />

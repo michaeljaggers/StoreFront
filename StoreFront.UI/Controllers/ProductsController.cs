@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using StoreFront.DATA;
 using StoreFront.UI.Utilities;
+using StoreFront.UI.Models;
 
 namespace StoreFront.UI.Controllers
 {
@@ -234,6 +235,46 @@ namespace StoreFront.UI.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // POST: AddToCart
+        [HttpPost]
+        public ActionResult AddToCart(int qty, int productID)
+        {
+            Dictionary<int, CartItemViewModel> shoppingCart = null;
+
+            if (Session["cart"] != null)
+            {
+                shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+            }
+            else
+            {
+                shoppingCart = new Dictionary<int, CartItemViewModel>();
+            }
+
+            Product product = db.Products.Where(p => p.ProductID == productID).FirstOrDefault();
+
+            if (product == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                CartItemViewModel item = new CartItemViewModel(qty, product);
+
+                if (shoppingCart.ContainsKey(product.ProductID))
+                {
+                    shoppingCart[product.ProductID].Qty += qty;
+                }
+                else
+                {
+                    shoppingCart.Add(product.ProductID, item);
+                }
+
+                Session["cart"] = shoppingCart;
+            }
+
+            return RedirectToAction("Index", "ShoppingCart");
         }
     }
 }
