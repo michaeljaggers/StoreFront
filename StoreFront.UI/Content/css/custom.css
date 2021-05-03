@@ -128,6 +128,14 @@ footer {
     background-color: #121212;
 }
 
+.quantity form {
+    width: 138px;
+}
+
+.quantity input {
+    width: auto;
+}
+
 .order-summary,
 .order-total {
     border: 2px solid #FFF;

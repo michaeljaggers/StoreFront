@@ -80,12 +80,6 @@ namespace StoreFront.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Cart()
-        {
-            return View();
-        }
-
-        [HttpGet]
         public ActionResult Checkout()
         {
             return View();

@@ -910,7 +910,6 @@
     <Content Include="Views\Shared\OriginalLayout.cshtml" />
     <Content Include="Views\Home\Categories.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
-    <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Styleguide.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
@@ -965,6 +964,7 @@
     <Content Include="Views\OrderDetails\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\ContactForm.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -972,7 +972,6 @@
     <Folder Include="Content\vendor\node-sass\src\" />
     <Folder Include="Content\vendor\node-sass\test\" />
     <Folder Include="Content\vendor\nouislider\distribute\" />
-    <Folder Include="Views\ShoppingCart\" />
     <Folder Include="_Archive\vendor\jquery.cookie\test\" />
     <Folder Include="_Archive\vendor\node-sass\src\" />
     <Folder Include="_Archive\vendor\node-sass\test\" />
