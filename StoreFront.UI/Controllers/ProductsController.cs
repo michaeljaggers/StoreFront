@@ -44,7 +44,7 @@ namespace StoreFront.UI.Controllers
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
             ViewBag.FlavorID = new SelectList(db.Flavors, "FlavorID", "Name");
-            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "NicotineID");
+            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "StrengthMg");
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "Company");
             return View();
         }
@@ -107,7 +107,7 @@ namespace StoreFront.UI.Controllers
 
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             ViewBag.FlavorID = new SelectList(db.Flavors, "FlavorID", "Name", product.FlavorID);
-            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "NicotineID", product.NicotineID);
+            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "StrengthMg", product.NicotineID);
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "Company", product.SupplierID);
             return View(product);
         }
@@ -126,7 +126,7 @@ namespace StoreFront.UI.Controllers
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             ViewBag.FlavorID = new SelectList(db.Flavors, "FlavorID", "Name", product.FlavorID);
-            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "NicotineID", product.NicotineID);
+            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "StrengthMg", product.NicotineID);
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "Company", product.SupplierID);
             return View(product);
         }
@@ -193,7 +193,7 @@ namespace StoreFront.UI.Controllers
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", product.CategoryID);
             ViewBag.FlavorID = new SelectList(db.Flavors, "FlavorID", "Name", product.FlavorID);
-            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "NicotineID", product.NicotineID);
+            ViewBag.NicotineID = new SelectList(db.Nicotines, "NicotineID", "StrengthMg", product.NicotineID);
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "Company", product.SupplierID);
             return View(product);
         }
