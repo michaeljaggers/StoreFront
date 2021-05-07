@@ -1,6 +1,7 @@
-﻿
+﻿@model Dictionary<int, StoreFront.UI.Models.CartItemViewModel>
 @{
     ViewBag.Title = "Checkout";
+    decimal? cartTotal = 0;
 }
 
 <div class="container">
@@ -15,7 +16,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-lg-end mb-0 px-0">
                             <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                            <li class="breadcrumb-item"><a href="@Url.Action("Cart", "Home")">Shopping Cart</a></li>
+                            <li class="breadcrumb-item"><a href="@Url.Action("Index", "ShoppingCart")">Shopping Cart</a></li>
                             <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
                         </ol>
                     </nav>
@@ -135,11 +136,16 @@
                     <div class="card-body">
                         <h5 class="text-uppercase mb-4">Your order</h5>
                         <ul class="list-unstyled mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">Red digital smartwatch</strong><span class="text-white-50 small">$250</span></li>
-                            <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">Gray Nike running shoes</strong><span class="text-white-50 small">$351</span></li>
-                            <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$601</span></li>
+                            @foreach (var item in Model)
+                            {
+                                decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+
+                                <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">@item.Value.Product.Name</strong><span class="small">x @item.Value.Qty</span><span class="text-white-50 small">@String.Format($"{lineTotal:c}")</span></li>
+                                <li class="border-bottom my-2"></li>
+                                
+                                cartTotal += lineTotal;
+                            }
+                            <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Total</strong><span>@String.Format($"{cartTotal:c}")</span></li>
                         </ul>
                     </div>
                 </div>

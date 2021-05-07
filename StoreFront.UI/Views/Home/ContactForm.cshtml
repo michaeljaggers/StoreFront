@@ -1,11 +1,10 @@
 ﻿@model StoreFront.UI.Models.ContactViewModel
 
 <div id="contactForm" class="col-lg-12 py-5">
-    @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "contactForm" }, new { id = "contact-form", @class = "contact-form col-lg-8 mx-auto" }))
+    @using (Ajax.BeginForm("Contact", "Home", new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "contactForm" }, new { id = "ContactForm", @class = "contact-form col-lg-8 mx-auto" }))
     {
         @Html.AntiForgeryToken()
-        <h4 class="text-center">Send a message.</h4>
-        <hr />
+
         if (ViewBag.Success != null)
         {
             <div class="alert-success">@Html.Raw(ViewBag.Success)</div>
@@ -15,6 +14,9 @@
         {
             <div class="alert-error">@Html.Raw(ViewBag.Error)</div>
         }
+
+        <h4 class="text-center">Send a message.</h4>
+        <hr />
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
