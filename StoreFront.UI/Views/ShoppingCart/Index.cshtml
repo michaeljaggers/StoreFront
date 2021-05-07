@@ -31,7 +31,7 @@
             <div class="col-lg-8 mb-4 mb-lg-0">
                 @if (ViewBag.Message != null)
                 {
-                    <h3 style="text-align: center; color: orange;">@ViewBag.Message</h3>
+                    <h3 style="text-align: center; color: #59B7F5; margin-top: 50px; margin-bottom: 75px;">@ViewBag.Message</h3>
                 }
                 else
                 {
@@ -70,21 +70,28 @@
                                                 @*<span class="small text-uppercase text-gray headings-font-family">Quantity</span>*@
                                                 <div class="quantity">
                                                     @*<button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>*@
-                                                    @using (Html.BeginForm("Update Cart", "ShoppingCart", FormMethod.Post))
+                                                    @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
                                                     {
                                                         @Html.Hidden("productID", item.Value.Product.ProductID)
                                                         @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control form-control-sm border-0 shadow-0 p-0", style = "display: inline; width: 30px;" })
                                                         <input type="submit" value="Update" class="btn btn-primary" />
+                                                    }
+                                                    @{ 
+                                                        totalCountOfItems += item.Value.Qty;
                                                     }
                                                     @*<button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>*@
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="align-middle border-0">
-                                            <p class="mb-0 text-white-50 small">@{totalCountOfItems += item.Value.Qty;}</p>
+                                            @{ 
+                                                decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
+                                                cartTotal += lineTotal;
+                                            }
+                                            <p class="mb-0 text-white-50 small">@String.Format($"{lineTotal:c}")</p>
                                         </td>
                                         <td class="align-middle border-0">
-                                            <a class="reset-anchor" href="@Url.Action("RemoveFromCart", "ShoppingCart")" id="@item.Value.Product.ProductID"><i class="fas fa-trash-alt small text-muted"></i></a>
+                                            <a class="reset-anchor" href="@Url.Action("RemoveFromCart", "ShoppingCart")/@item.Value.Product.ProductID" id="@item.Value.Product.ProductID"><i class="fas fa-trash-alt small text-muted"></i></a>
                                         </td>
                                     </tr>
                                 }
@@ -109,14 +116,14 @@
                             <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted text-white-50 small">@String.Format($"{cartTotal:c}")</span></li>
                             <li class="border-bottom my-2"></li>
                             <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>@String.Format($"{cartTotal:c}")</span></li>
-                            <li>
+                            @*<li>
                                 <form action="#">
                                     <div class="form-group mb-0">
                                         <input class="form-control" type="text" placeholder="Enter your coupon">
                                         <button class="btn btn-dark btn-sm btn-block" type="submit"> <i class="fas fa-gift mr-2"></i>Apply coupon</button>
                                     </div>
                                 </form>
-                            </li>
+                            </li>*@
                         </ul>
                     </div>
                 </div>

@@ -1,14 +1,21 @@
 ﻿using StoreFront.UI.Models;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 using System;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
+using StoreFront.DATA;
 
 
 namespace StoreFront.UI.Controllers
 {
     public class HomeController : Controller
     {
+        private StoreFrontEntities db = new StoreFrontEntities();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -74,9 +81,19 @@ namespace StoreFront.UI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Detail()
+        public ActionResult Detail(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(product);
         }
 
         [HttpGet]

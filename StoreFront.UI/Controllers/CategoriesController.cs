@@ -72,8 +72,7 @@ namespace StoreFront.UI.Controllers
                     //Check if the uploaded file extension is in our list of good extensions & check that the file size is <= 4MB max imposed by ASP.net
                     if (goodExts.Contains(ext.ToLower()) && categoryImage.ContentLength <= 4194304)
                     {
-                        // Create a new file name (using a GUID)
-                        file = Guid.NewGuid() + ext;
+                        file = categoryImage.FileName;
 
                         #region Resize Image
                         string savePath = Server.MapPath("~/Content/imgstore/categories/");

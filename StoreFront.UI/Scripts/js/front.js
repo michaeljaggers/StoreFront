@@ -74,4 +74,8 @@ $.getJSON('./countries.json', function (data) {
         var selectOption = "<option value='" + value.name + "' data-dial-code='" + value.dial_code + "'>" + value.name + "</option>";
         $("select.country").append(selectOption);
     });
+
+
+
+
 })

@@ -18,7 +18,7 @@ namespace StoreFront.UI.Controllers
             if (shoppingCart == null || shoppingCart.Count() == 0)
             {
                 shoppingCart = new Dictionary<int, CartItemViewModel>();
-                ViewBag.Message = "There are no items in your cart.";
+                ViewBag.Message = "Your shopping cart is empty.";
             }
             else
             {
@@ -26,6 +26,28 @@ namespace StoreFront.UI.Controllers
             }
 
             return View(shoppingCart);
+        }
+
+        public ActionResult RemoveFromCart(int id)
+        {
+            Dictionary<int, CartItemViewModel> shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+
+            shoppingCart.Remove(id);
+
+            Session["cart"] = shoppingCart;
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateCart(int productID, int qty)
+        {
+            Dictionary<int, CartItemViewModel> shoppingCart = (Dictionary<int, CartItemViewModel>)Session["cart"];
+
+            shoppingCart[productID].Qty = qty;
+
+            Session["cart"] = shoppingCart;
+
+            return RedirectToAction("Index");
         }
     }
 }
