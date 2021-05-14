@@ -12,9 +12,16 @@ a:hover {
     color: #59B7F5;
 }
 
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+    color: #59B7F5;
+}
+
 .table {
-    color: #FFF;
-    background-color: #121212;
+color: #FFF;
+background-color: #121212;
 }
 
 table.data-table tbody tr {
@@ -140,9 +147,9 @@ footer {
     width: 138px;
 }
 
-.quantity input {
+/*.quantity input {
     width: auto;
-}
+}*/
 
 .order-summary,
 .order-total {

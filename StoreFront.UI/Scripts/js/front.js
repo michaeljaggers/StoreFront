@@ -75,7 +75,13 @@ $.getJSON('./countries.json', function (data) {
         $("select.country").append(selectOption);
     });
 
-
+/* ===============================================================
+        PASS MODAL DATA
+    =============================================================== */
+    $(".modal-trigger").click(function () {
+        var product_id = $(this).data('id');
+        $(".modal-body #hiddenValue").val(product_id);
+    })
 
 
 })

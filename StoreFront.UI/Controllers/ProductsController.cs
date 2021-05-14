@@ -39,6 +39,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
+
         // GET: Products/Create
         public ActionResult Create()
         {

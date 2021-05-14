@@ -990,6 +990,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\ContactForm.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Shared\_ModalPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

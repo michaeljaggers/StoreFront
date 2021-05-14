@@ -31,7 +31,7 @@
                 <h1>@Html.DisplayFor(model => model.Name)</h1>
                 <h3 class="text-light">@Html.DisplayFor(model => model.Price)</h3>
                 <div class="add-to-cart my-5">
-                    <p>
+                    @*<p>
                         <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
                         @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
                         {
@@ -39,7 +39,26 @@
                             @Html.TextBox("Qty", 1, new { @class = "form-control border-0", style = "max-height: 35px; max-width: 55px; display: inline;" })
                             <input type="submit" name="qty" value="Add To Cart" class="btn btn-primary border-0" style="" />
                         }
-                    </p>
+                    </p>*@
+                    @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
+                    {
+                        <div class="row align-items-stretch mb-4">
+                            <div class="col-sm-5 pr-sm-0">
+                                <div class="border d-flex align-items-center bg-white justify-content-between py-1 px-3">
+                                    <span class="small text-uppercase text-dark mr-4 no-select">Quantity</span>
+                                    <div class="quantity">
+
+                                        @Html.HiddenFor(p => p.ProductID)
+                                        @Html.TextBox("Qty", 1, new { @class = "form-control border-0" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 pl-sm-0">
+                                <a class="btn btn-primary border-0" style="line-height: 2.26rem;" href="@Url.Action("Index", "ShoppingCart")">Add To Cart</a>
+                            </div>
+                        </div>
+                    }
                 </div>
                 <ul class="list-unstyled small d-inline-block">
                     <li class="px-3 py-2 mb-1 gray-bg"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-white-50">1005468-00-@Html.DisplayFor(model => model.ProductID)</span></li>
