@@ -33,8 +33,13 @@
                             <li class="nav-item">
                                 <!-- Link--><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <!-- Link--><a class="nav-link" href="@Url.Action("Categories", "Home")">Categories</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="categoriesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                                <div class="dropdown-menu mt-3" aria-labelledby="categoriesDropdown">
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail/1", "Home")">Starter Kit</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Cartridges</a>
+                                    <a class="dropdown-item border-0 transition-link" href="#">Accessories</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <!-- Link--><a class="nav-link" href="@Url.Action("Contact", "Home")">Contact Us</a>
