@@ -16,13 +16,14 @@ namespace StoreFront.UI.Controllers
     public class HomeController : Controller
     {
         private StoreFrontEntities db = new StoreFrontEntities();
-
+        // GET Index
         [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
+        // GET /Home/About
         [HttpGet]
         [Authorize]
         public ActionResult About()
@@ -30,12 +31,14 @@ namespace StoreFront.UI.Controllers
             return View();
         }
 
+        // GET /Home/Contact
         [HttpGet]
         public ActionResult Contact()
         {
             return View();
         }
 
+        // POST /Home/Contact
         [HttpPost]
         public ActionResult Contact(ContactViewModel cvm)
         {
@@ -87,12 +90,14 @@ namespace StoreFront.UI.Controllers
             return PartialView("ContactForm");
         }
 
+        // GET /Home/Categories
         [HttpGet]
         public ActionResult Categories()
         {
             return View();
         }
 
+        // GET /Home/Detail/1
         [HttpGet]
         public ActionResult Detail(int? id)
         {
@@ -109,6 +114,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
+        // GET /Home/Checkout
         [HttpGet]
         public ActionResult Checkout()
         {
@@ -127,6 +133,7 @@ namespace StoreFront.UI.Controllers
             return View(shoppingCart);
         }
 
+        // GET /Home/Styleguide
         [HttpGet]
         public ActionResult Styleguide()
         {

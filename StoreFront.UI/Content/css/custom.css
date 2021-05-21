@@ -8,7 +8,8 @@ a {
 }
 
 a:focus,
-a:hover {
+a:hover,
+.navbar-light .navbar-nav .nav-link:focus {
     color: #59B7F5;
 }
 
@@ -18,6 +19,7 @@ a:hover {
 .navbar-light .navbar-nav .show > .nav-link {
     color: #59B7F5;
 }
+
 
 .table {
 color: #FFF;
