@@ -105,6 +105,7 @@
           <Property Name="SupplierID" Type="int" />
           <Property Name="Image" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsFeatured" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Shippers">
           <Key>
@@ -391,6 +392,7 @@
           <NavigationProperty Name="Nicotine" Relationship="Self.FK_Products_Nicotine" FromRole="Products" ToRole="Nicotine" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetail_Products" FromRole="Products" ToRole="OrderDetail" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Shipper">
           <Key>
@@ -661,6 +663,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="StoreFrontModel.Product">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<StoreFront.DATA.Product>
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InStockCt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnOrderCt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReorderCt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFeatured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flavor.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nicotine.NicotineID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.Company)
+        </th>
+        <th></th>
+    </tr>*@
+
+@foreach (var item in Model)
+{
+    <!-- PRODUCT-->
+    <div class="col-xl-3 col-lg-4 col-sm-6">
+        <div class="product text-center">
+            <div class="position-relative mb-3">
+                <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home", new { @id = item.ProductID })"><img class="img-fluid w-100" src="~/Content/imgstore/products/@item.Image" alt="@item.Name"></a>
+                <div class="product-overlay">
+                    <ul class="mb-0 list-inline">
+                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                        <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="@Url.Action("ModalPartial", "Products", new { @id = item.ProductID })" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home", new { @id = item.ProductID })">@item.Name</a></h6>
+            <p class="small text-muted">@Html.DisplayFor(modelItem => item.Price)</p>
+        </div>
+    </div>
+    @*<tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InStockCt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OnOrderCt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderCt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsFeatured)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flavor.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nicotine.NicotineID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier.Company)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+            </td>
+        </tr>*@
+    <div class="modal fade" id="productView" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    @Html.Action("ModalPartial", "Products", new { @id = item.ProductID })
+                </div>
+            </div>
+        </div>
+    </div>
+}

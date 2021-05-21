@@ -32,6 +32,7 @@ namespace StoreFront.DATA
         public Nullable<int> SupplierID { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
+        public bool IsFeatured { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Flavor Flavor { get; set; }

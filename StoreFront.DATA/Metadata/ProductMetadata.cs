@@ -9,8 +9,8 @@ namespace StoreFront.DATA
 {
     public class ProductMetadata
     {
-        [Display(Name = "Product ID")]
-        public int ProductID { get; set; }
+        //[Display(Name = "Product ID")]
+        //public int ProductID { get; set; }
 
         [Required]
         [Display(Name = "Product")]
@@ -47,6 +47,9 @@ namespace StoreFront.DATA
         public string Image { get; set; }
 
         public string Description { get; set; }
+
+        [Display(Name = "Featured")]
+        public bool IsFeatured { get; set; }
     }
 
     [MetadataType(typeof(ProductMetadata))]

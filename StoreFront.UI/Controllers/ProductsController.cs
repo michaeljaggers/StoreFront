@@ -39,6 +39,19 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
+        // GET 
+        public ActionResult ModalPartial(int? id)
+        {
+            Product product = db.Products.Find(id);
+            return PartialView(product);
+        }
+
+        // GET
+        public ActionResult FeaturedProducts()
+        {
+            List<Product> products = db.Products.Where(p => p.IsFeatured == true).ToList();
+            return PartialView(products);
+        }
 
         // GET: Products/Create
         public ActionResult Create()
@@ -131,6 +144,7 @@ namespace StoreFront.UI.Controllers
             ViewBag.SupplierID = new SelectList(db.Suppliers, "SupplierID", "Company", product.SupplierID);
             return View(product);
         }
+
 
         // POST: Products/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

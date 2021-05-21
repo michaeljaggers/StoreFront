@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<StoreFront.DATA.Product>
+
+@{
     ViewBag.Title = "Home";
 }
 
@@ -34,135 +36,137 @@
             <h2 class="h5 text-uppercase mb-4">Top trending products</h2>
         </header>
         <div class="row">
+            @Html.Action("FeaturedProducts", "Products")
             <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-1.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
+            @*<div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-1.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
                     </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Kui Ye Chen’s AirPods</a></h6>
-                    <p class="small text-muted">$250</p>
                 </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Kui Ye Chen’s AirPods</a></h6>
+                <p class="small text-muted">$250</p>
             </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-primary">Sale</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-2.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark modal-trigger" href="#productView" data-id="1" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
+        </div>*@
+            @*<!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-primary">Sale</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-2.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark modal-trigger" href="#productView" data-id="1" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
                     </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Air Jordan 12 gym red</a></h6>
-                    <p class="small text-muted">$300</p>
                 </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-3.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Cyan cotton t-shirt</a></h6>
-                    <p class="small text-muted">$25</p>
-                </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-info">New</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-4.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Timex Unisex Originals</a></h6>
-                    <p class="small text-muted">$351</p>
-                </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-danger">Sold</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-5.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Red digital smartwatch</a></h6>
-                    <p class="small text-muted">$250</p>
-                </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-6.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Nike air max 95</a></h6>
-                    <p class="small text-muted">$300</p>
-                </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-7.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Joemalone Women prefume</a></h6>
-                    <p class="small text-muted">$25</p>
-                </div>
-            </div>
-            <!-- PRODUCT-->
-            <div class="col-xl-3 col-lg-4 col-sm-6">
-                <div class="product text-center">
-                    <div class="position-relative mb-3">
-                        <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-8.jpg" alt="..."></a>
-                        <div class="product-overlay">
-                            <ul class="mb-0 list-inline">
-                                <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
-                                <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Apple Watch</a></h6>
-                    <p class="small text-muted">$351</p>
-                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Air Jordan 12 gym red</a></h6>
+                <p class="small text-muted">$300</p>
             </div>
         </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-3.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Cyan cotton t-shirt</a></h6>
+                <p class="small text-muted">$25</p>
+            </div>
+        </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-info">New</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-4.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Timex Unisex Originals</a></h6>
+                <p class="small text-muted">$351</p>
+            </div>
+        </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-danger">Sold</div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-5.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Red digital smartwatch</a></h6>
+                <p class="small text-muted">$250</p>
+            </div>
+        </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-6.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Nike air max 95</a></h6>
+                <p class="small text-muted">$300</p>
+            </div>
+        </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-7.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Joemalone Women prefume</a></h6>
+                <p class="small text-muted">$25</p>
+            </div>
+        </div>
+        <!-- PRODUCT-->
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="product text-center">
+                <div class="position-relative mb-3">
+                    <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Home")"><img class="img-fluid w-100" src="~/Content/img/product-8.jpg" alt="..."></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Cart", "Home")">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h6> <a class="reset-anchor" href="@Url.Action("Detail", "Home")">Apple Watch</a></h6>
+                <p class="small text-muted">$351</p>
+            </div>
+        </div>*@
+        </div>
+        
     </section>
     <!-- SERVICES-->
     <section class="py-5 gray-bg services">
@@ -232,5 +236,3 @@
         </div>
     </section>
 </div>
-
-@Html.Partial("_ModalPartial")
