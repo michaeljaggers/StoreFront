@@ -1,27 +1,28 @@
-﻿@model StoreFront.DATA.Product 
+﻿@model StoreFront.DATA.Product
 
 @{
     ViewBag.Title = "Detail";
 }
 
-<section class="py-5"  id="productDetail">
+<section class="py-5" id="productDetail">
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-6">
                 <!-- PRODUCT SLIDER-->
                 <div class="row m-sm-0">
                     @*<div class="col-sm-2 p-sm-0 order-2 order-sm-1 mt-2 mt-sm-0">
-                        <div class="owl-thumbs d-flex flex-row flex-sm-column" data-slider-id="1">
-                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-1.jpg" alt="..."></div>
-                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-2.jpg" alt="..."></div>
-                            <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-3.jpg" alt="..."></div>
-                            <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="~/Content/img/product-detail-4.jpg" alt="..."></div>
-                        </div>
-                    </div>*@
+                            <div class="owl-thumbs d-flex flex-row flex-sm-column" data-slider-id="1">
+                                <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-1.jpg" alt="..."></div>
+                                <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-2.jpg" alt="..."></div>
+                                <div class="owl-thumb-item flex-fill mb-2 mr-2 mr-sm-0"><img class="w-100" src="~/Content/img/product-detail-3.jpg" alt="..."></div>
+                                <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="~/Content/img/product-detail-4.jpg" alt="..."></div>
+                            </div>
+                        </div>*@
                     <div class="col-sm-10 offset-1 order-1 order-sm-2">
                         <div class="owl-carousel product-slider" data-slider-id="1">
                             <a class="d-block" href="~/Content/imgstore/products/@Html.DisplayFor(model => model.Image)" data-lightbox="product" title="@Html.DisplayFor(model => model.Name)">
-                            <img class="img-fluid" src="~/Content/imgstore/products/@Html.DisplayFor(model => model.Image)" alt="@Html.DisplayFor(model => model.Name)"></a>
+                                <img class="img-fluid" src="~/Content/imgstore/products/@Html.DisplayFor(model => model.Image)" alt="@Html.DisplayFor(model => model.Name)">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -32,14 +33,14 @@
                 <h3 class="text-light">@Html.DisplayFor(model => model.Price)</h3>
                 <div class="add-to-cart my-5">
                     @*<p>
-                        <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
-                        @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
-                        {
-                            @Html.HiddenFor(p => p.ProductID)
-                            @Html.TextBox("Qty", 1, new { @class = "form-control border-0", style = "max-height: 35px; max-width: 55px; display: inline;" })
-                            <input type="submit" name="qty" value="Add To Cart" class="btn btn-primary border-0" style="" />
-                        }
-                    </p>*@
+                            <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
+                            @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
+                            {
+                                @Html.HiddenFor(p => p.ProductID)
+                                @Html.TextBox("Qty", 1, new { @class = "form-control border-0", style = "max-height: 35px; max-width: 55px; display: inline;" })
+                                <input type="submit" name="qty" value="Add To Cart" class="btn btn-primary border-0" style="" />
+                            }
+                        </p>*@
                     @using (Html.BeginForm("AddToCart", "Products", new { productID = Model.ProductID }, FormMethod.Post))
                     {
                         <div class="row align-items-stretch mb-4">
@@ -62,7 +63,7 @@
                 </div>
                 <ul class="list-unstyled small d-inline-block">
                     <li class="px-3 py-2 mb-1 gray-bg"><strong class="text-uppercase">SKU:</strong><span class="ml-2 text-white-50">1005468-00-@Html.DisplayFor(model => model.ProductID)</span></li>
-                    <li class="px-3 py-2 mb-1 gray-bg text-muted"><strong class="text-uppercase text-white">Category:</strong><a class="reset-anchor ml-2 text-white-50" href="#">@Html.DisplayFor(model => model.Category.Name)</a></li> 
+                    <li class="px-3 py-2 mb-1 gray-bg text-muted"><strong class="text-uppercase text-white">Category:</strong><a class="reset-anchor ml-2 text-white-50" href="#">@Html.DisplayFor(model => model.Category.Name)</a></li>
                 </ul>
             </div>
         </div>
@@ -188,3 +189,5 @@
         </div>
     </div>
 </section>
+
+@Html.Partial("_ModalPartial")
