@@ -17,14 +17,31 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Products
+        // GET: Products/Index
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category).Include(p => p.Flavor).Include(p => p.Nicotine).Include(p => p.Supplier);
             return View(products.ToList());
         }
 
-        // GET: Products/Details/5
+        // GET Products/Detail/1 | Shopping Page
+        [HttpGet]
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = db.Products.Find(id);
+            if (product == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(product);
+        }
+
+        // GET: Products/Details/5 | Management Page
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,14 +56,14 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // GET 
+        // GET: Modal Partial
         public ActionResult ModalPartial(int? id)
         {
             Product product = db.Products.Find(id);
             return PartialView(product);
         }
 
-        // GET
+        // GET: Featured Products Partial
         public ActionResult FeaturedProducts()
         {
             List<Product> products = db.Products.Where(p => p.IsFeatured == true).ToList();

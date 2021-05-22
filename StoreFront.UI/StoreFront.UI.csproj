@@ -935,7 +935,7 @@
     <Content Include="Scripts\js\countries.json" />
     <Content Include="Views\Shared\OriginalLayout.cshtml" />
     <Content Include="Views\Home\Categories.cshtml" />
-    <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Products\Detail.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Home\Styleguide.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />

@@ -31,27 +31,18 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item">
-                                <!-- Link--><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
+                                <a class="nav-link" href="@Url.Action("Index", "Home")">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="categoriesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
-                                <div class="dropdown-menu mt-3" aria-labelledby="categoriesDropdown">
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail/1", "Home")">Starter Kit</a>
+                                <a class="nav-link dropdown-toggle" id="productsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                                <div class="dropdown-menu mt-3" aria-labelledby="productsDropdown">
+                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail/1", "Products")">Starter Kit</a>
                                     <a class="dropdown-item border-0 transition-link" href="#">Cartridges</a>
                                     <a class="dropdown-item border-0 transition-link" href="#">Accessories</a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <!-- Link--><a class="nav-link" href="@Url.Action("Contact", "Home")">Contact Us</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <div class="dropdown-menu mt-3" aria-labelledby="pagesDropdown">
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Home")">Homepage</a>
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Categories", "Home")">Categories</a>
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Contact", "Home")">Contact Us</a>
-                                    <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "ShoppingCart")">Shopping cart</a><a class="dropdown-item border-0 transition-link" href="@Url.Action("Checkout", "Home")">Checkout</a>
-                                </div>
+                                <a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto">
@@ -65,37 +56,39 @@
 
                                         <small class="text-gray">( @cartCount )</small>
                                     }
-                                    </a>
-                                </li>
+                                </a>
+                            </li>
 
-                                    @Html.Partial("_LoginPartial")
-                                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                                    {
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" id="adminDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-                                            <div class="dropdown-menu mt-3" aria-labelledby="adminDropdown">
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "RolesAdmin")">Manage Roles</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "UsersAdmin")">Manage Users</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Categories")">Manage Categories</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Customers")">Manage Customers</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Employees")">Manage Employees</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Flavors")">Manage Flavors</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Nicotines")">Manage Nicotine Strengths</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "OrderDetails")">Manage Order Details</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Orders")">Manage Orders</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Products")">Manage Products</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Shippers")">Manage Shipping Partners</a>
-                                                <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Suppliers")">Manage Suppliers</a>
-                                            </div>
-                                        </li>
-                                    }
-                                </ul>
+                            @Html.Partial("_LoginPartial")
+
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="adminDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+                                    <div class="dropdown-menu mt-3" aria-labelledby="adminDropdown">
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "RolesAdmin")">Manage Roles</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "UsersAdmin")">Manage Users</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Categories")">Manage Categories</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Customers")">Manage Customers</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Employees")">Manage Employees</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Flavors")">Manage Flavors</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Nicotines")">Manage Nicotine Strengths</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "OrderDetails")">Manage Order Details</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Orders")">Manage Orders</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Products")">Manage Products</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Shippers")">Manage Shipping Partners</a>
+                                        <a class="dropdown-item border-0 transition-link" href="@Url.Action("Index", "Suppliers")">Manage Suppliers</a>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
                     </div>
                 </nav>
             </div>
-
         </header>
+
         @RenderBody()
+
         <footer class="bg-dark text-white">
             <div class="container py-4">
                 <div class="row py-5">
@@ -137,29 +130,7 @@
         @Scripts.Render("~/bundles/js")
         @RenderSection("scripts", required: false)
         <script>
-// ------------------------------------------------------- //
-        //   Inject SVG Sprite -
-        //   see more here
-        //   https://css-tricks.com/ajaxing-svg-sprite/
-        // ------------------------------------------------------ //
-        function injectSvgSprite(path) {
-
-            var ajax = new XMLHttpRequest();
-            ajax.open("GET", path, true);
-            ajax.send();
-            ajax.onload = function(e) {
-            var div = document.createElement("div");
-            div.className = 'd-none';
-            div.innerHTML = ajax.responseText;
-            document.body.insertBefore(div, document.body.childNodes[0]);
-            }
-        }
-        // this is set to BootstrapTemple website as you cannot
-        // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
-        // while using file:// protocol
-        // pls don't forget to change to your domain :)
-        injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
-
+        // Active nav-link
         $(function () {
             $('.navbar-nav > li a.nav-link').each(function () {
                 if ($(this).attr('href') == window.location.pathname) {
