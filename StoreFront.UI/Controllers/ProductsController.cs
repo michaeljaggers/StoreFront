@@ -60,14 +60,14 @@ namespace StoreFront.UI.Controllers
         public ActionResult ModalPartial(int? id)
         {
             Product product = db.Products.Find(id);
-            return PartialView(product);
+            return PartialView("ModalPartial", product);
         }
 
         // GET: Featured Products Partial
         public ActionResult FeaturedProducts()
         {
             List<Product> products = db.Products.Where(p => p.IsFeatured == true).ToList();
-            return PartialView(products);
+            return PartialView("FeaturedProducts", products);
         }
 
         // GET: Products/Create

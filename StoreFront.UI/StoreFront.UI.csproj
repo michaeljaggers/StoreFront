@@ -991,9 +991,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\ContactForm.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\Shared\_ModalPartial.cshtml" />
     <Content Include="Views\Products\ModalPartial.cshtml" />
     <Content Include="Views\Products\FeaturedProducts.cshtml" />
+    <Content Include="Views\Categories\Cartridges.cshtml" />
+    <Content Include="Views\Categories\Accessories.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

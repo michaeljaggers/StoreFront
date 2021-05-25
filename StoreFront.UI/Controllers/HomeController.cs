@@ -1,14 +1,11 @@
 ﻿using StoreFront.UI.Models;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System;
 using System.Net;
 using System.Net.Mail;
 using System.Web.Mvc;
 using StoreFront.DATA;
-using StoreFront.UI.Models;
 using System.Configuration;
 
 namespace StoreFront.UI.Controllers

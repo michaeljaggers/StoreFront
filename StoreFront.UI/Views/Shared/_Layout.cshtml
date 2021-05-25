@@ -37,8 +37,8 @@
                                 <a class="nav-link dropdown-toggle" id="productsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
                                 <div class="dropdown-menu mt-3" aria-labelledby="productsDropdown">
                                     <a class="dropdown-item border-0 transition-link" href="@Url.Action("Detail/1", "Products")">Starter Kit</a>
-                                    <a class="dropdown-item border-0 transition-link" href="#">Cartridges</a>
-                                    <a class="dropdown-item border-0 transition-link" href="#">Accessories</a>
+                                    <a class="dropdown-item border-0 transition-link" href=@Url.Action("Cartridges", "Categories")>Cartridges</a>
+                                    <a class="dropdown-item border-0 transition-link" href=@Url.Action("Accessories", "Categories")>Accessories</a>
                                 </div>
                             </li>
                             <li class="nav-item">
@@ -126,10 +126,27 @@
                 </div>
             </div>
         </footer>
+
         <!-- JavaScript files-->
         @Scripts.Render("~/bundles/js")
         @RenderSection("scripts", required: false)
         <script>
+        // SVG Sprites
+        function injectSvgSprite(path) {
+
+            var ajax = new XMLHttpRequest();
+            ajax.open("GET", path, true);
+            ajax.send();
+            ajax.onload = function (e) {
+                var div = document.createElement("div");
+                div.className = 'd-none';
+                div.innerHTML = ajax.responseText;
+                document.body.insertBefore(div, document.body.childNodes[0]);
+            }
+        }
+            
+        injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+
         // Active nav-link
         $(function () {
             $('.navbar-nav > li a.nav-link').each(function () {

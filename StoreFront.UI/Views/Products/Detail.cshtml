@@ -18,7 +18,7 @@
                                 <div class="owl-thumb-item flex-fill mb-2"><img class="w-100" src="~/Content/img/product-detail-4.jpg" alt="..."></div>
                             </div>
                         </div>*@
-                    <div class="col-sm-10 offset-1 order-1 order-sm-2">
+                    <div class="col-sm-10 order-1 order-sm-2">
                         <div class="owl-carousel product-slider" data-slider-id="1">
                             <a class="d-block" href="~/Content/imgstore/products/@Html.DisplayFor(model => model.Image)" data-lightbox="product" title="@Html.DisplayFor(model => model.Name)">
                                 <img class="img-fluid" src="~/Content/imgstore/products/@Html.DisplayFor(model => model.Image)" alt="@Html.DisplayFor(model => model.Name)">
@@ -29,8 +29,8 @@
             </div>
             <!-- PRODUCT DETAILS-->
             <div class="col-lg-6">
-                <h1>@Html.DisplayFor(model => model.Name)</h1>
-                <h3 class="text-light">@Html.DisplayFor(model => model.Price)</h3>
+                <h1 class="product-name">@Html.DisplayFor(model => model.Name)</h1>
+                <h3 class="text-light product-price">@Html.DisplayFor(model => model.Price)</h3>
                 <div class="add-to-cart my-5">
                     @*<p>
                             <span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-5 pl-sm-0">
-                                <a class="btn btn-primary border-0" style="line-height: 2.26rem;" href="@Url.Action("Index", "ShoppingCart")">Add To Cart</a>
+                                <a class="btn btn-primary border-0 cart-btn" style="line-height: 2.26rem;" href="@Url.Action("Index", "ShoppingCart")">Add To Cart</a>
                             </div>
                         </div>
                     }
@@ -120,7 +120,7 @@
             </div>
         </div>
         <!-- FEATURED PRODUCTS-->
-        <h2 class="h5 text-uppercase mb-4">Featured Products</h2>
+        <h2 class="h5 text-uppercase mb-4 featured-heading">Featured Products</h2>
         <div class="row">
 
             @Html.Action("FeaturedProducts", "Products")

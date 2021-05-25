@@ -16,13 +16,27 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Categories
+        // GET: Categories/Cartidges | Shopping Page
+        public ActionResult Cartridges()
+        {
+            List<Product> products = db.Products.Where(p => p.CategoryID == 2).ToList();
+            return View(products);
+        }
+
+        // GET: Categories/Accessories | Shopping Page
+        public ActionResult Accessories()
+        {
+            List<Product> products = db.Products.Where(p => p.CategoryID == 1).ToList();
+            return View(products);
+        }
+
+        // GET: Categories | Management Page
         public ActionResult Index()
         {
             return View(db.Categories.ToList());
         }
 
-        // GET: Categories/Details/5
+        // GET: Categories/Details/5 | Management Page
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,13 +51,13 @@ namespace StoreFront.UI.Controllers
             return View(category);
         }
 
-        // GET: Categories/Create
+        // GET: Categories/Create | Management Page
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Categories/Create | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -101,7 +115,7 @@ namespace StoreFront.UI.Controllers
             return View(category);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Categories/Edit/5 | Management Page
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -116,7 +130,7 @@ namespace StoreFront.UI.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Categories/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -179,7 +193,7 @@ namespace StoreFront.UI.Controllers
             return View(category);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Categories/Delete/5 | Management Page
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -194,7 +208,7 @@ namespace StoreFront.UI.Controllers
             return View(category);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Categories/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
