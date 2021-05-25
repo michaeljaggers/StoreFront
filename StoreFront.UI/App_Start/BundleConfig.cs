@@ -28,7 +28,7 @@ namespace StoreFront.UI
 
             // Style Bundles
 
-            bundles.Add(new StyleBundle("~/Content/vendor").Include(
+            bundles.Add(new StyleBundle("~/Content/vendorstyles").Include(
                         "~/Content/vendor/bootstrap/css/bootstrap.min.css",
                         "~/Content/vendor/bootstrap-select/css/bootstrap-select.min.css",
                         "~/Content/vendor/lightbox2/css/lightbox.min.css",
@@ -38,7 +38,7 @@ namespace StoreFront.UI
                         "~/Content/DataTables/css/jquery.dataTables.jqueryui.min.css",
                         "~/Content/DataTables/css/jquery.dataTables.min.css"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/Content/styles").Include(
                         "~/Content/css/style.default.min.css",
                         "~/Content/css/custom.css"));
         }
