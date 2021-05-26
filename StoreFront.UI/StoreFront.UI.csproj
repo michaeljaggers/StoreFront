@@ -390,6 +390,10 @@
     <Content Include="Content\imgstore\products\t_SmokBattery.jpg" />
     <Content Include="Content\imgstore\products\t_SmokPak.jpg" />
     <Content Include="Content\imgstore\products\t_SmokStarterKit.jpg" />
+    <Content Include="Content\img\carousel\expandhorizons.jpg" />
+    <Content Include="Content\img\carousel\putoutcigarette.jpg" />
+    <Content Include="Content\img\carousel\smokanywhere.jpg" />
+    <Content Include="Content\img\carousel\socialsmoker.jpg" />
     <Content Include="Content\img\cat-img-1.jpg" />
     <Content Include="Content\img\cat-img-2.jpg" />
     <Content Include="Content\img\cat-img-3.jpg" />
@@ -403,7 +407,7 @@
     <Content Include="Content\img\hero-banner.jpg" />
     <Content Include="Content\img\hero-shop.jpg" />
     <Content Include="Content\img\Logo.png" />
-    <Content Include="Content\img\nextgeneration.jpg" />
+    <Content Include="Content\img\carousel\nextgeneration.jpg" />
     <Content Include="Content\img\product-1.jpg" />
     <Content Include="Content\img\product-10.jpg" />
     <Content Include="Content\img\product-11.jpg" />

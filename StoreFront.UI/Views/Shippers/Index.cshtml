@@ -24,16 +24,16 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ShipperID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ShipperID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ShipperID })
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Products", new { id = item.ShipperID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Products", new { id = item.ShipperID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Products", new { id = item.ShipperID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

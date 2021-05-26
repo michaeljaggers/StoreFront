@@ -20,16 +20,16 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StrengthMg)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.NicotineID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.NicotineID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.NicotineID })
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StrengthMg)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Products", new { id = item.NicotineID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Products", new { id = item.NicotineID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Products", new { id = item.NicotineID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

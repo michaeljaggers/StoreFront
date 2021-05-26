@@ -3,8 +3,12 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })) {
         @Html.AntiForgeryToken()
 
-    <li class="nav-item"><a title="Manage Account" class="nav-link" href="@Url.Action("Index", "Manage")"><i class="fas fa-user-alt mr-1 text-gray"></i>Account</a></li>
-    <li class="nav-item"><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt mr-1 text-gray"></i>Log Out</a></li>
+    <li class="nav-item">
+        <a title="Manage Account" class="nav-link" href="@Url.Action("Index", "Manage")"><i class="fas fa-user-alt mr-1 text-gray"></i>Account</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt mr-1 text-gray"></i>Log Out</a>
+    </li>
     }
 }
 else {

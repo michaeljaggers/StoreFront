@@ -31,26 +31,26 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Order.OrderID)
-                    </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order.OrderID)
+                </td>
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Product.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Discount)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.OrderDetailID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.OrderDetailID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderDetailID })
-                    </td>
-                </tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Products", new { id = item.OrderDetailID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Products", new { id = item.OrderDetailID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Products", new { id = item.OrderDetailID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

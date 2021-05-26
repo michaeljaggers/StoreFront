@@ -25,12 +25,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Category.Name)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Flavor.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nicotine.StrengthMg)
-                </th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -51,15 +45,9 @@
                         @Html.DisplayFor(modelItem => item.Category.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Flavor.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Nicotine.StrengthMg)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                        <a href="@Url.Action("Edit", "Products", new { id = item.ProductID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                        <a href="@Url.Action("Details", "Products", new { id = item.ProductID })" title="View Details"><i class="far fa-eye"></i></a> |
+                        <a href="@Url.Action("Delete", "Products", new { id = item.ProductID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
                     </td>
                 </tr>
             }
