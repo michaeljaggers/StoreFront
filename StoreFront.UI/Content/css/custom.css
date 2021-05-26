@@ -15,7 +15,13 @@ a:hover,
 
 img {
     width: 100%;
+    max-width: 500px;
 }
+
+.carousel-item img {
+    max-width: none;
+}
+
 .review-image {
     width: 50px;
 }
@@ -305,8 +311,8 @@ footer {
     line-height: 20px;
 }
 
-    .data-table i:hover,
-    .dtatable i:active {
-        color: #59B7F5;
-    }
+.data-table i:hover,
+.dtatable i:active {
+    color: #59B7F5;
+}
 
