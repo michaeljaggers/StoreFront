@@ -13,6 +13,13 @@ a:hover,
     color: #59B7F5;
 }
 
+img {
+    width: 100%;
+}
+.review-image {
+    width: 50px;
+}
+
 .dropdown-menu[aria-labelledby="adminDropdown"] {
     left: -150px;
 }
@@ -302,3 +309,4 @@ footer {
     .dtatable i:active {
         color: #59B7F5;
     }
+

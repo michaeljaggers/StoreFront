@@ -34,9 +34,9 @@
                     <img src="~/Content/imgstore/categories/t_@item.Image" alt="Category Image" title="@item.Name" style="max-width: 100px;" />
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Products", new { id = item.CategoryID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "Products", new { id = item.CategoryID })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "Products", new { id = item.CategoryID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    <a href="@Url.Action("Edit", "Categories", new { id = item.CategoryID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Categories", new { id = item.CategoryID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }

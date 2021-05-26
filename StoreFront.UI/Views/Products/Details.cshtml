@@ -9,96 +9,110 @@
 
     <div>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
+        <div class="row">
+            <div class="col-12 col-lg-8 order-1 order-lg-0 mt-3 mt-lg-0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Price)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Price):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Price)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Price)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.InStockCt)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.InStockCt)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.OnOrderCt)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Category.Name):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.OnOrderCt)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Category.Name)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.ReorderCt)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsFeatured):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.ReorderCt)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Image)
-            </dt>
-
-            <dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.IsFeatured)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-12 col-lg-4 order-0 order-lg-1">
                 <img src="~/Content/imgstore/products/@Model.Image" alt="Model.Name" />
-            </dd>
+            </div>
+        </div>
+        <div class="row mt-lg-3">
+            <div class="col-12 col-lg-8">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Flavor.Name):
+                    </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Flavor.Name)
+                    </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Description)
-            </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Nicotine.StrengthMg):
+                    </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Category.Name)
-            </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Nicotine.StrengthMg)
+                    </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Category.Name)
-            </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Supplier.Company):
+                    </dt>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Flavor.Name)
-            </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Supplier.Company)
+                    </dd>
+                </dl>
+            </div>
+            <div class="col-12 col-lg-4 mt-3 mt-lg-0">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.InStockCt):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Flavor.Name)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.InStockCt)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Nicotine.StrengthMg)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.OnOrderCt):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Nicotine.StrengthMg)
-            </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.OnOrderCt)
+                    </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Supplier.Company)
-            </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ReorderCt):
+                    </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Supplier.Company)
-            </dd>
-
-        </dl>
+                    <dd>
+                        @Html.DisplayFor(model => model.ReorderCt)
+                    </dd>
+                </dl>
+            </div>
+        </div>
     </div>
     <p>
         @Html.ActionLink("Edit Product", "Edit", new { id = Model.ProductID }) |

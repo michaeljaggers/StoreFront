@@ -41,9 +41,9 @@
                     @Html.DisplayFor(modelItem => item.ShipDate)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Products", new { id = item.OrderID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "Products", new { id = item.OrderID })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "Products", new { id = item.OrderID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    <a href="@Url.Action("Edit", "Orders", new { id = item.OrderID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Orders", new { id = item.OrderID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Orders", new { id = item.OrderID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }

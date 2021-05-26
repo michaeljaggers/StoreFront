@@ -46,9 +46,9 @@
                     @Html.DisplayFor(modelItem => item.Phone)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Products", new { id = item.EmployeeID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "Products", new { id = item.EmployeeID })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "Products", new { id = item.EmployeeID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    <a href="@Url.Action("Edit", "Employees", new { id = item.EmployeeID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
+                    <a href="@Url.Action("Details", "Employees", new { id = item.EmployeeID })" title="View Details"><i class="far fa-eye"></i></a> |
+                    <a href="@Url.Action("Delete", "Employees", new { id = item.EmployeeID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }
