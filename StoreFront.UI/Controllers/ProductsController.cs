@@ -17,14 +17,14 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Products/Index
+        // GET: Products/Index | Management
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category).Include(p => p.Flavor).Include(p => p.Nicotine).Include(p => p.Supplier);
             return View(products.ToList());
         }
 
-        // GET Products/Detail/1 | Shopping Page
+        // GET Products/Detail/1 | Shopping
         [HttpGet]
         public ActionResult Detail(int? id)
         {
@@ -41,7 +41,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // GET: Products/Details/5 | Management Page
+        // GET: Products/Details/5 | Management
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -56,21 +56,21 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // GET: Modal Partial
+        // GET: Modal Partial | Shopping
         public ActionResult ModalPartial(int? id)
         {
             Product product = db.Products.Find(id);
             return PartialView("ModalPartial", product);
         }
 
-        // GET: Featured Products Partial
+        // GET: Featured Products Partial | Shopping
         public ActionResult FeaturedProducts()
         {
             List<Product> products = db.Products.Where(p => p.IsFeatured == true).ToList();
             return PartialView("FeaturedProducts", products);
         }
 
-        // GET: Products/Create
+        // GET: Products/Create | Management
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
@@ -80,7 +80,7 @@ namespace StoreFront.UI.Controllers
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Products/Create | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -143,7 +143,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Products/Edit/5 | Management
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -163,7 +163,7 @@ namespace StoreFront.UI.Controllers
         }
 
 
-        // POST: Products/Edit/5
+        // POST: Products/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -230,7 +230,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/Delete/5 | Management
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -245,7 +245,7 @@ namespace StoreFront.UI.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Products/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -269,7 +269,20 @@ namespace StoreFront.UI.Controllers
             base.Dispose(disposing);
         }
 
-        // POST: AddToCart
+        // AJAX DELETE Products/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"Product \"{product.Name}\" deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
+        }
+
+        // POST: Products/AddToCart/5 | Shopping
         [HttpPost]
         public ActionResult AddToCart(int qty, int productID)
         {
