@@ -223,6 +223,19 @@ namespace StoreFront.UI.Controllers
             return RedirectToAction("Index");
         }
 
+        // AJAX DELETE Categories/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"'{category.Name}' deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

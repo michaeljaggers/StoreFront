@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Category", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="CategoriesTable">
         <thead>
             <tr>
                 <th>
@@ -26,19 +27,29 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    <img src="~/Content/imgstore/categories/t_@item.Image" alt="Category Image" title="@item.Name" style="max-width: 100px;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Categories", new { id = item.CategoryID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Categories", new { id = item.CategoryID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Category-@item.CategoryID">
+                    <td>
+                        <img src="~/Content/imgstore/categories/t_@item.Image" alt="Category Image" title="@item.Name" style="max-width: 100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Categories", new { id = item.CategoryID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Categories",
+                           new { id = item.CategoryID },
+                           new AjaxOptions
+                           {
+                               HttpMethod = "POST",
+                               Confirm = $"Are you sure you want to delete {item.Name} from categories?",
+                               OnSuccess = "deleteConfirmed",
+                               OnFailure = "deleteFailed"
+                           },
+                           new { @class = "deleteButton"}
+                        )
+                    </td>
+                </tr>
             }
         </tbody>
 
@@ -46,9 +57,25 @@
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Category-" + response.id;
+
+            $("#CategoriesTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this category referenced by a product?  If so, change the product's category or delete the product.</div>");
+        }
+
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>
