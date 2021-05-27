@@ -140,7 +140,7 @@
                             {
                                 decimal? lineTotal = item.Value.Product.Price * item.Value.Qty;
 
-                                <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold">@item.Value.Product.Name</strong><span class="small">x @item.Value.Qty</span><span class="text-white-50 small">@String.Format($"{lineTotal:c}")</span></li>
+                                <li class="d-flex align-items-center justify-content-between"><strong class="small font-weight-bold" style="width: 100%;">@item.Value.Product.Name</strong><span class="small" style="min-width: 25px;">x @item.Value.Qty</span><span class="text-white-50 small" style="padding-left: 5px;">@String.Format($"{lineTotal:c}")</span></li>
                                 <li class="border-bottom my-2"></li>
                                 
                                 cartTotal += lineTotal;

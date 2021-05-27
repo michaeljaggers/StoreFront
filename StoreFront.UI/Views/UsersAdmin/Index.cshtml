@@ -29,9 +29,9 @@
                     @Html.DisplayFor(modelItem => item.UserName)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "UsersAdmin", new { id = item.Id })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "UsersAdmin", new { id = item.Id })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "UsersAdmin", new { id = item.Id })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    <a href="@Url.Action("Edit", "UsersAdmin", new { id = item.Id })" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("Details", "UsersAdmin", new { id = item.Id })" title="Details"><i class="far fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "UsersAdmin", new { id = item.Id })" title="Delete"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }

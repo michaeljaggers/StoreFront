@@ -205,6 +205,11 @@ footer {
 .title-section h1.h2 {
     color: #59B7F5;
 }
+
+.category-item-title {
+    
+}
+
 .services {
     border: 2px solid #FFF;
 }
@@ -304,9 +309,14 @@ footer {
     border-color: #59B7F5;
 }
 
-.data-table i {
-    font-size: 24px;
-    padding: 0 5px;
+table.dataTable tbody th,
+table.dataTable tbody td {
+    vertical-align: middle;
+}
+
+table.data-table i {
+    font-size: 18px;
+    padding: 0 8px;
     color: #FFF;
     line-height: 20px;
 }

@@ -14,10 +14,10 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Image)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Image)
+                    @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Price)
@@ -31,25 +31,25 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        <img src="~/Content/imgstore/products/t_@item.Image" alt="Product Image" title="@item.Name" style="max-width: 100px;" />
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Category.Name)
-                    </td>
-                    <td>
-                        <a href="@Url.Action("Edit", "Products", new { id = item.ProductID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                        <a href="@Url.Action("Details", "Products", new { id = item.ProductID })" title="View Details"><i class="far fa-eye"></i></a> |
-                        <a href="@Url.Action("Delete", "Products", new { id = item.ProductID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <img src="~/Content/imgstore/products/t_@item.Image" alt="Product Image" title="@item.Name" style="max-width: 100px;" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Products", new { id = item.ProductID })" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("Details", "Products", new { id = item.ProductID })" title="Details"><i class="far fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "Products", new { id = item.ProductID })" title="Delete"><i class="far fa-trash-alt"></i></a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

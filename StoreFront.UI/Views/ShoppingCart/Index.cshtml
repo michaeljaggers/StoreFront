@@ -54,19 +54,19 @@
                                     <tr>
                                         <td class="pl-0 border-0" scope="row">
                                             <div class="media align-items-center">
-                                                <a class="reset-anchor d-block animsition-link" href="@Url.Action($"Detail/{item.Value.Product.ProductID}", "Home")"><img src="~/Content/imgstore/products/t_@item.Value.Product.Image" alt="@item.Value.Product.Name" width="70" /></a>
+                                                <a class="reset-anchor d-block animsition-link" href="@Url.Action($"Detail/{item.Value.Product.ProductID}", "Products")"><img src="~/Content/imgstore/products/t_@item.Value.Product.Image" alt="@item.Value.Product.Name" width="70" /></a>
                                             </div>
                                         </td>
                                         <td class="align-middle pl-0 border-0">
                                             <div class="media-body ml-3">
-                                                <strong class="h6"><a class="reset-anchor text-white animsition-link" href="@Url.Action($"Detail/{item.Value.Product.ProductID}", "Home")">@item.Value.Product.Name</a></strong>
+                                                <strong class="h6"><a class="reset-anchor text-white animsition-link" href="@Url.Action($"/Detail/{item.Value.Product.ProductID}", "Products")">@item.Value.Product.Name</a></strong>
                                             </div>
                                         </td>
                                         <td class="align-middle border-0">
                                             <p class="mb-0 text-white-50 small">@String.Format($"{item.Value.Product.Price:c}")</p>
                                         </td>
                                         <td class="align-middle border-0">
-                                            <div class="border bg-white d-flex align-items-center justify-content-between px-0" style="max-width: 140px;">
+                                            <div class="border bg-white d-flex align-items-center justify-content-between px-0" style="max-width: 70px;">
                                                 @*<span class="small text-uppercase text-gray headings-font-family">Quantity</span>*@
                                                 <div class="quantity">
                                                     @*<button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>*@
@@ -74,7 +74,9 @@
                                                     {
                                                         @Html.Hidden("productID", item.Value.Product.ProductID)
                                                         @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control form-control-sm border-0 shadow-0 p-0", style = "display: inline; width: 30px;" })
-                                                        <input type="submit" value="Update" class="btn btn-primary" />
+                                                        <button type="submit" title="Update quantity" class="btn btn-primary" style="padding: 0; width: 35px; height: 35px;">
+                                                            <i class="fas fa-sync-alt" style="padding: 5px 6px;"></i>
+                                                        </button>
                                                     }
                                                     @{ 
                                                         totalCountOfItems += item.Value.Qty;
@@ -91,7 +93,7 @@
                                             <p class="mb-0 text-white-50 small">@String.Format($"{lineTotal:c}")</p>
                                         </td>
                                         <td class="align-middle border-0">
-                                            <a class="reset-anchor" href="@Url.Action("RemoveFromCart", "ShoppingCart")/@item.Value.Product.ProductID" id="@item.Value.Product.ProductID"><i class="fas fa-trash-alt small text-muted"></i></a>
+                                            <a class="reset-anchor" title="Remove from cart" href="@Url.Action("RemoveFromCart", "ShoppingCart")/@item.Value.Product.ProductID" id="@item.Value.Product.ProductID"><i class="fas fa-trash-alt text-muted"></i></a>
                                         </td>
                                     </tr>
                                 }
@@ -102,7 +104,7 @@
                 <!-- CART NAV-->
                 <div class="gray-bg px-4 py-3">
                     <div class="row align-items-center text-center">
-                        <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-white btn-sm" href="@Url.Action("Categories", "Home")"><i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue Shopping</a></div>
+                        <div class="col-md-6 mb-3 mb-md-0 text-md-left"><a class="btn btn-link p-0 text-white btn-sm" href="@Url.Action("Index", "Home")"><i class="fas fa-long-arrow-alt-left mr-2"> </i>Continue Shopping</a></div>
                         <div class="col-md-6 text-md-right"><a class="btn btn-outline-light btn-sm" href="@Url.Action("Checkout", "Home")">Procceed To Checkout<i class="fas fa-long-arrow-alt-right ml-2"></i></a></div>
                     </div>
                 </div>

@@ -14,10 +14,10 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Image)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Image)
+                    @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>Actions</th>
             </tr>
@@ -28,15 +28,15 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
                     <img src="~/Content/imgstore/categories/t_@item.Image" alt="Category Image" title="@item.Name" style="max-width: 100px;" />
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Categories", new { id = item.CategoryID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "Categories", new { id = item.CategoryID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Categories", new { id = item.CategoryID })" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("Details", "Categories", new { id = item.CategoryID })" title="Details"><i class="far fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "Categories", new { id = item.CategoryID })" title="Delete"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }

@@ -25,9 +25,9 @@
                     @Html.DisplayFor(modelItem => item.StrengthMg)
                 </td>
                 <td>
-                    <a href="@Url.Action("Edit", "Nicotines", new { id = item.NicotineID })" title="Edit Info"><i class="fas fa-edit"></i></a> |
-                    <a href="@Url.Action("Details", "Nicotines", new { id = item.NicotineID })" title="View Details"><i class="far fa-eye"></i></a> |
-                    <a href="@Url.Action("Delete", "Nicotines", new { id = item.NicotineID })" title="Delete Item"><i class="far fa-trash-alt"></i></a>
+                    <a href="@Url.Action("Edit", "Nicotines", new { id = item.NicotineID })" title="Edit"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("Details", "Nicotines", new { id = item.NicotineID })" title="Details"><i class="far fa-eye"></i></a>
+                    <a href="@Url.Action("Delete", "Nicotines", new { id = item.NicotineID })" title="Delete"><i class="far fa-trash-alt"></i></a>
                 </td>
             </tr>
             }

@@ -9,7 +9,13 @@
                 <div class="badge text-white badge-"></div><a class="d-block" href="@Url.Action("Detail", "Products", new { @id = item.ProductID })"><img class="img-fluid w-100" src="~/Content/imgstore/products/@item.Image" alt="@item.Name"></a>
                 <div class="product-overlay">
                     <ul class="mb-0 list-inline">
-                        <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="@Url.Action("Index", "ShoppingCart")">Add to cart</a></li>
+                        <li class="list-inline-item m-0 p-0">
+                            @using (Html.BeginForm("AddToCart", "Products", new { productID = item.ProductID }, FormMethod.Post))
+                            {
+                                <input type="hidden" id="Qty" name="Qty" value="1" />
+                                <input type="submit" value="Add To Cart" class="btn btn-sm btn-dark" href="@Url.Action("Index", "ShoppingCart")" />
+                            }
+                        </li>
                         <li class="list-inline-item mr-0">
                             <a class="btn btn-sm btn-outline-dark modal-trigger" data-id=@item.ProductID data-target="#productView" data-toggle="modal"><i class="fas fa-expand"></i></a>
                         </li>
