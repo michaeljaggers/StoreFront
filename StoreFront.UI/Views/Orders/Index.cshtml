@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Order", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="OrdersTable">
         <thead>
             <tr>
                 <th>
@@ -30,31 +31,65 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.OrderDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ShipDate)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Orders", new { id = item.OrderID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Orders", new { id = item.OrderID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Orders", new { id = item.OrderID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Order-@item.OrderID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ShipDate)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Orders", new { id = item.OrderID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Orders", new { id = item.OrderID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Orders",
+                          new { id = item.OrderID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete order ID: {item.OrderID}?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Order-" + response.id;
+
+            $("#OrdersTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this order ID referenced elsewhere?  If so, remove the order ID reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>

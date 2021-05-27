@@ -14,14 +14,14 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Orders
+        // GET: Orders/Index | Management
         public ActionResult Index()
         {
             var orders = db.Orders.Include(o => o.Customer).Include(o => o.Shipper);
             return View(orders.ToList());
         }
 
-        // GET: Orders/Details/5
+        // GET: Orders/Details/5 | Management
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +36,7 @@ namespace StoreFront.UI.Controllers
             return View(order);
         }
 
-        // GET: Orders/Create
+        // GET: Orders/Create | Management
         public ActionResult Create()
         {
             ViewBag.CustomerID = new SelectList(db.Customers, "CustomerID", "FirstName");
@@ -44,7 +44,7 @@ namespace StoreFront.UI.Controllers
             return View();
         }
 
-        // POST: Orders/Create
+        // POST: Orders/Create | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -63,7 +63,7 @@ namespace StoreFront.UI.Controllers
             return View(order);
         }
 
-        // GET: Orders/Edit/5
+        // GET: Orders/Edit/5 | Management
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace StoreFront.UI.Controllers
             return View(order);
         }
 
-        // POST: Orders/Edit/5
+        // POST: Orders/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -98,7 +98,7 @@ namespace StoreFront.UI.Controllers
             return View(order);
         }
 
-        // GET: Orders/Delete/5
+        // GET: Orders/Delete/5 | Management
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +113,7 @@ namespace StoreFront.UI.Controllers
             return View(order);
         }
 
-        // POST: Orders/Delete/5
+        // POST: Orders/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -122,6 +122,19 @@ namespace StoreFront.UI.Controllers
             db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // AJAX DELETE Orders/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Order order = db.Orders.Find(id);
+            db.Orders.Remove(order);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"Order ID: {order.OrderID} deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
         }
 
         protected override void Dispose(bool disposing)
