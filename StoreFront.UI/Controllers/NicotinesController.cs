@@ -14,13 +14,13 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Nicotines
+        // GET: Nicotines/Index | Management
         public ActionResult Index()
         {
             return View(db.Nicotines.ToList());
         }
 
-        // GET: Nicotines/Details/5
+        // GET: Nicotines/Details/5 | Management
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace StoreFront.UI.Controllers
             return View(nicotine);
         }
 
-        // GET: Nicotines/Create
+        // GET: Nicotines/Create | Management
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Nicotines/Create
+        // POST: Nicotines/Create | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace StoreFront.UI.Controllers
             return View(nicotine);
         }
 
-        // GET: Nicotines/Edit/5
+        // GET: Nicotines/Edit/5 | Management
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace StoreFront.UI.Controllers
             return View(nicotine);
         }
 
-        // POST: Nicotines/Edit/5
+        // POST: Nicotines/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace StoreFront.UI.Controllers
             return View(nicotine);
         }
 
-        // GET: Nicotines/Delete/5
+        // GET: Nicotines/Delete/5 | Management
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace StoreFront.UI.Controllers
             return View(nicotine);
         }
 
-        // POST: Nicotines/Delete/5
+        // POST: Nicotines/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -113,6 +113,19 @@ namespace StoreFront.UI.Controllers
             db.Nicotines.Remove(nicotine);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // AJAX DELETE Nicotines/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Nicotine nicotine = db.Nicotines.Find(id);
+            db.Nicotines.Remove(nicotine);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"Nicotine strength \"{nicotine.StrengthMg}mg.\" deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
         }
 
         protected override void Dispose(bool disposing)

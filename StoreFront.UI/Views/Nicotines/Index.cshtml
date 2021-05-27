@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Strength", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="NicotinesTable">
         <thead>
             <tr>
                 <th>Strengths</th>
@@ -20,25 +21,59 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StrengthMg)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Nicotines", new { id = item.NicotineID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Nicotines", new { id = item.NicotineID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Nicotines", new { id = item.NicotineID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Nicotine-@item.NicotineID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StrengthMg)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Nicotines", new { id = item.NicotineID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Nicotines", new { id = item.NicotineID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Nicotines",
+                          new { id = item.NicotineID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete strength {item.StrengthMg}mg. from nicotines?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Nicotine-" + response.id;
+
+            $("#NicotinesTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this nicotine strength referenced elsewhere?  If so, remove the nicotine strength reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>
