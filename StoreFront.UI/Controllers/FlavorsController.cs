@@ -17,13 +17,13 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Flavors
+        // GET: Flavors | Management
         public ActionResult Index()
         {
             return View(db.Flavors.ToList());
         }
 
-        // GET: Flavors/Details/5
+        // GET: Flavors/Details/5 | Manangement
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,13 +38,13 @@ namespace StoreFront.UI.Controllers
             return View(flavor);
         }
 
-        // GET: Flavors/Create
+        // GET: Flavors/Create | Management
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Flavors/Create
+        // POST: Flavors/Create | Manangement
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -102,7 +102,7 @@ namespace StoreFront.UI.Controllers
             return View(flavor);
         }
 
-        // GET: Flavors/Edit/5
+        // GET: Flavors/Edit/5 | Management
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -117,7 +117,7 @@ namespace StoreFront.UI.Controllers
             return View(flavor);
         }
 
-        // POST: Flavors/Edit/5
+        // POST: Flavors/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -180,7 +180,7 @@ namespace StoreFront.UI.Controllers
             return View(flavor);
         }
 
-        // GET: Flavors/Delete/5
+        // GET: Flavors/Delete/5 | Management
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -195,7 +195,7 @@ namespace StoreFront.UI.Controllers
             return View(flavor);
         }
 
-        // POST: Flavors/Delete/5
+        // POST: Flavors/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -207,6 +207,19 @@ namespace StoreFront.UI.Controllers
             db.Flavors.Remove(flavor);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // AJAX DELETE Flavors/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Flavor flavor = db.Flavors.Find(id);
+            db.Flavors.Remove(flavor);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"Flavor \"{flavor.Name}\" deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
         }
 
         protected override void Dispose(bool disposing)

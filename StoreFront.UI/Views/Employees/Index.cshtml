@@ -73,16 +73,24 @@
         // AJAX Delete
         $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
 
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
         function deleteConfirmed(response, status, data) {
             var rowId = "#Employee-" + response.id;
 
             $("#EmployeesTable").find(rowId).remove();
 
             $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
         }
 
         function deleteFailed(response, status, data) {
             $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this employee referenced elsewhere?  If so, remove the employee reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
         }
         
         $(document).ready(function () {

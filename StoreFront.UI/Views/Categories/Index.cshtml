@@ -62,16 +62,24 @@
         // AJAX Delete
         $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
 
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
         function deleteConfirmed(response, status, data) {
             var rowId = "#Category-" + response.id;
 
             $("#CategoriesTable").find(rowId).remove();
 
             $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
         }
 
         function deleteFailed(response, status, data) {
             $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this category referenced by a product?  If so, change the product's category or delete the product.</div>");
+
+            setTimeout(removeMessage, 6000);
         }
 
         $(document).ready(function () {

@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Flavor", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="FlavorsTable">
         <thead>
             <tr>
                 <th>
@@ -25,28 +26,62 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    <img src="~/Content/imgstore/flavors/t_@item.Image" alt="Flavor Image" title="@item.Name" style="max-width: 100px;" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Flavors", new { id = item.FlavorID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Flavors", new { id = item.FlavorID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Flavors", new { id = item.FlavorID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Flavor-@item.FlavorID">
+                    <td>
+                        <img src="~/Content/imgstore/flavors/t_@item.Image" alt="Flavor Image" title="@item.Name" style="max-width: 100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Flavors", new { id = item.FlavorID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Flavors", new { id = item.FlavorID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Flavors",
+                          new { id = item.FlavorID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete {item.Name} from flavors?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Flavor-" + response.id;
+
+            $("#FlavorsTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this flavor referenced elsewhere?  If so, remove the flavor reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>

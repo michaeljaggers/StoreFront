@@ -326,3 +326,17 @@ table.data-table i {
     color: #59B7F5;
 }
 
+#MessageContent {
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+    max-width: 1110px;
+    top: 80px;
+}
+
+#MessageContent div {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
