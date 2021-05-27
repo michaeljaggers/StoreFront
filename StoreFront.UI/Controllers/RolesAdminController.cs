@@ -52,7 +52,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Roles/
+        // GET: /Roles/Index | Management
         [HttpGet]
         public ActionResult Index()
         {
@@ -60,7 +60,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Roles/Details/5
+        // GET: /Roles/Details/5 | Management
         [HttpGet]
         public async Task<ActionResult> Details(string id)
         {
@@ -87,7 +87,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Roles/Create
+        // GET: /Roles/Create | Management
         [HttpGet]
         public ActionResult Create()
         {
@@ -95,7 +95,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Roles/Create
+        // POST: /Roles/Create | Management
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
@@ -115,7 +115,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Roles/Edit/Admin
+        // GET: /Roles/Edit/Admin | Management
         [HttpGet]
         public async Task<ActionResult> Edit(string id)
         {
@@ -133,7 +133,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Roles/Edit/5
+        // POST: /Roles/Edit/5 | Management
         [HttpPost]
 
         [ValidateAntiForgeryToken]
@@ -150,7 +150,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Roles/Delete/5
+        // GET: /Roles/Delete/5 | Management
         [HttpGet]
         public async Task<ActionResult> Delete(string id)
         {
@@ -167,7 +167,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Roles/Delete/5
+        // POST: /Roles/Delete/5 | Management
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]

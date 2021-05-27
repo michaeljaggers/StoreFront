@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Shipping Partner", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="ShippersTable">
         <thead>
             <tr>
                 <th>
@@ -24,25 +25,59 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Shippers", new { id = item.ShipperID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Shippers", new { id = item.ShipperID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Shippers", new { id = item.ShipperID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Shipper-@item.ShipperID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Shippers", new { id = item.ShipperID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Shippers", new { id = item.ShipperID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Shippers",
+                          new { id = item.ShipperID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete {item.Name} from shipping partners?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Shipper-" + response.id;
+
+            $("#ShippersTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this shipping partner referenced elsewhere?  If so, remove the shipping partner reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>

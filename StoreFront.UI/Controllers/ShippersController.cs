@@ -14,13 +14,13 @@ namespace StoreFront.UI.Controllers
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
-        // GET: Shippers
+        // GET: Shippers/Index | Management
         public ActionResult Index()
         {
             return View(db.Shippers.ToList());
         }
 
-        // GET: Shippers/Details/5
+        // GET: Shippers/Details/5 | Management
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace StoreFront.UI.Controllers
             return View(shipper);
         }
 
-        // GET: Shippers/Create
+        // GET: Shippers/Create | Management
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Shippers/Create
+        // POST: Shippers/Create | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace StoreFront.UI.Controllers
             return View(shipper);
         }
 
-        // GET: Shippers/Edit/5
+        // GET: Shippers/Edit/5 | Management
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace StoreFront.UI.Controllers
             return View(shipper);
         }
 
-        // POST: Shippers/Edit/5
+        // POST: Shippers/Edit/5 | Management
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace StoreFront.UI.Controllers
             return View(shipper);
         }
 
-        // GET: Shippers/Delete/5
+        // GET: Shippers/Delete/5 | Management
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace StoreFront.UI.Controllers
             return View(shipper);
         }
 
-        // POST: Shippers/Delete/5
+        // POST: Shippers/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -113,6 +113,19 @@ namespace StoreFront.UI.Controllers
             db.Shippers.Remove(shipper);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        // AJAX DELETE Shippers/AjaxDelete/5 | Management
+        [AcceptVerbs(HttpVerbs.Post)]
+        public JsonResult AjaxDelete(int id)
+        {
+            Shipper shipper = db.Shippers.Find(id);
+            db.Shippers.Remove(shipper);
+            db.SaveChanges();
+
+            string confirmMessage = string.Format($"Shipping partner \"{shipper.Name}\" deleted successfully!");
+
+            return Json(new { id = id, message = confirmMessage });
         }
 
         protected override void Dispose(bool disposing)
