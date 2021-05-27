@@ -231,7 +231,7 @@ namespace StoreFront.UI.Controllers
             db.Categories.Remove(category);
             db.SaveChanges();
 
-            string confirmMessage = string.Format($"'{category.Name}' deleted successfully!");
+            string confirmMessage = string.Format($"Category \"{category.Name}\" deleted successfully!");
 
             return Json(new { id = id, message = confirmMessage });
         }

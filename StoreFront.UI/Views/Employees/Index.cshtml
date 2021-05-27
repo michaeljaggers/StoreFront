@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Employee", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="EmployeesTable">
         <thead>
             <tr>
                 <th>
@@ -32,34 +33,60 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "Employees", new { id = item.EmployeeID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "Employees", new { id = item.EmployeeID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "Employees", new { id = item.EmployeeID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                <tr id="Employee-@item.EmployeeID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Employees", new { id = item.EmployeeID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "Employees", new { id = item.EmployeeID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Employees",
+                          new { id = item.EmployeeID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete {item.FirstName} {item.LastName} from employees?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Employee-" + response.id;
+
+            $("#EmployeesTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this employee referenced elsewhere?  If so, remove the employee reference before deleting here.</div>");
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>
