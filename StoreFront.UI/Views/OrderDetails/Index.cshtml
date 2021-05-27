@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Order Details", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="OrderDetailsTable">
         <thead>
             <tr>
                 <th>
@@ -31,35 +32,69 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Order.OrderID)
-                </td>
+                <tr id="OrderDetail-@item.OrderDetailID">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.OrderID)
+                    </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Discount)
-                </td>
-                <td>
-                    <a href="@Url.Action("Edit", "OrderDetails", new { id = item.OrderDetailID })" title="Edit"><i class="fas fa-edit"></i></a>
-                    <a href="@Url.Action("Details", "OrderDetails", new { id = item.OrderDetailID })" title="Details"><i class="far fa-eye"></i></a>
-                    <a href="@Url.Action("Delete", "OrderDetails", new { id = item.OrderDetailID })" title="Delete"><i class="far fa-trash-alt"></i></a>
-                </td>
-            </tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "OrderDetails", new { id = item.OrderDetailID })" title="Edit"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Details", "OrderDetails", new { id = item.OrderDetailID })" title="Details"><i class="far fa-eye"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "OrderDetails",
+                          new { id = item.OrderDetailID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete order detail ID: {item.OrderDetailID}?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#OrderDetail-" + response.id;
+
+            $("#OrderDetailsTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this order detail ID referenced elsewhere?  If so, remove the order detail ID reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>
