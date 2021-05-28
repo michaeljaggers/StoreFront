@@ -49,7 +49,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Users/
+        // GET: /Users/Index | Management
         [HttpGet]
         public async Task<ActionResult> Index()
         {
@@ -57,7 +57,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Users/Details/5
+        // GET: /Users/Details/5 | Management
         [HttpGet]
         public async Task<ActionResult> Details(string id)
         {
@@ -73,7 +73,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Users/Create
+        // GET: /Users/Create | Management
         [HttpGet]
         public async Task<ActionResult> Create()
         {
@@ -83,7 +83,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Users/Create
+        // POST: /Users/Create | Management
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(RegisterViewModel userViewModel, params string[] selectedRoles)
@@ -121,7 +121,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Users/Edit/1
+        // GET: /Users/Edit/1 | Management
         [HttpGet]
         public async Task<ActionResult> Edit(string id)
         {
@@ -151,7 +151,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Users/Edit/5
+        // POST: /Users/Edit/5 | Management
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Email,Id")] EditUserViewModel editUser, params string[] selectedRole)
@@ -192,7 +192,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // GET: /Users/Delete/5
+        // GET: /Users/Delete/5 | Management
         [HttpGet]
         public async Task<ActionResult> Delete(string id)
         {
@@ -209,7 +209,7 @@ namespace StoreFront.UI.Controllers
         }
 
         //
-        // POST: /Users/Delete/5
+        // POST: /Users/Delete/5 | Management
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
