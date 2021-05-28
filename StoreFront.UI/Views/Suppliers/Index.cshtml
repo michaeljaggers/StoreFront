@@ -10,7 +10,8 @@
     <p>
         @Html.ActionLink("Create New Product Supplier", "Create")
     </p>
-    <table class="table data-table">
+    <div id="MessageContent"></div>
+    <table class="table data-table" id="SuppliersTable">
         <thead>
             <tr>
                 <th>
@@ -24,14 +25,24 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
+                <tr id="Supplier-@item.SupplierID">
                     <td>
                         @Html.DisplayFor(modelItem => item.Company)
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Suppliers", new { id = item.SupplierID })" title="Edit"><i class="fas fa-edit"></i></a>
                         <a href="@Url.Action("Details", "Suppliers", new { id = item.SupplierID })" title="Details"><i class="far fa-eye"></i></a>
-                        <a href="@Url.Action("Delete", "Suppliers", new { id = item.SupplierID })" title="Delete"><i class="far fa-trash-alt"></i></a>
+                        @Ajax.ActionLink(" ", "AjaxDelete", "Suppliers",
+                          new { id = item.SupplierID },
+                          new AjaxOptions
+                          {
+                              HttpMethod = "POST",
+                              Confirm = $"Are you sure you want to delete {item.Company} from suppliers?",
+                              OnSuccess = "deleteConfirmed",
+                              OnFailure = "deleteFailed"
+                          },
+                          new { @class = "deleteButton"}
+                       )
                     </td>
                 </tr>
             }
@@ -40,9 +51,33 @@
 </div>
 
 @section scripts {
+    @Scripts.Render("~/bundles/ajax")
     <script>
-        // Applying jQuery DataTables plugin
+        // AJAX Delete
+        $('.deleteButton').prepend("<i class='far fa-trash-alt'></i> ");
+
+        function removeMessage() {
+            $("#MessageContent").html("");
+        }
+
+        function deleteConfirmed(response, status, data) {
+            var rowId = "#Supplier-" + response.id;
+
+            $("#SuppliersTable").find(rowId).remove();
+
+            $("#MessageContent").html("<div class='alert alert-success text-success text-center'>" + response.message + "</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+
+        function deleteFailed(response, status, data) {
+            $("#MessageContent").html("<div class='alert alert-danger text-danger text-center'>Delete unsuccessful.  Is this supplier referenced elsewhere?  If so, remove the supplier reference before deleting here.</div>");
+
+            setTimeout(removeMessage, 6000);
+        }
+        
         $(document).ready(function () {
+            // Applying jQuery DataTables plugin
             $(".data-table").DataTable();
         });
     </script>
