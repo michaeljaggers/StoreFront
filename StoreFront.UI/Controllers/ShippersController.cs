@@ -10,6 +10,7 @@ using StoreFront.DATA;
 
 namespace StoreFront.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ShippersController : Controller
     {
         private StoreFrontEntities db = new StoreFrontEntities();

@@ -48,7 +48,7 @@
                     </td>
                     <td>
                         <a href="@Url.Action("Edit", "Employees", new { id = item.EmployeeID })" title="Edit"><i class="fas fa-edit"></i></a>
-                        <a href="@Url.Action("Details", "Employees", new { id = item.EmployeeID })" title="Details"><i class="far fa-eye"></i></a>
+                        <a href="@Url.Action("Details", "Employees", new { id = item.EmployeeID })" title=" View Details"><i class="far fa-eye"></i></a>
                         @Ajax.ActionLink(" ", "AjaxDelete", "Employees",
                           new { id = item.EmployeeID },
                           new AjaxOptions
@@ -58,7 +58,7 @@
                               OnSuccess = "deleteConfirmed",
                               OnFailure = "deleteFailed"
                           },
-                          new { @class = "deleteButton"}
+                           new { @class = "deleteButton", title = "Delete" }
                        )
                     </td>
                 </tr>

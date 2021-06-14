@@ -13,11 +13,13 @@ using StoreFront.UI.Models;
 
 namespace StoreFront.UI.Controllers
 {
+    
     public class ProductsController : Controller
     {
         private StoreFrontEntities db = new StoreFrontEntities();
 
         // GET: Products/Index | Management
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var products = db.Products.Include(p => p.Category).Include(p => p.Flavor).Include(p => p.Nicotine).Include(p => p.Supplier);
@@ -42,6 +44,7 @@ namespace StoreFront.UI.Controllers
         }
 
         // GET: Products/Details/5 | Management
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -71,6 +74,7 @@ namespace StoreFront.UI.Controllers
         }
 
         // GET: Products/Create | Management
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name");
@@ -84,6 +88,7 @@ namespace StoreFront.UI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description,IsFeatured")] Product product, HttpPostedFileBase productImage)
         {
@@ -144,6 +149,7 @@ namespace StoreFront.UI.Controllers
         }
 
         // GET: Products/Edit/5 | Management
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -167,6 +173,7 @@ namespace StoreFront.UI.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ProductID,Name,CategoryID,NicotineID,FlavorID,Price,InStockCt,OnOrderCt,ReorderCt,SupplierID,Image,Description,IsFeatured")] Product product, HttpPostedFileBase productImage)
         {
@@ -231,6 +238,7 @@ namespace StoreFront.UI.Controllers
         }
 
         // GET: Products/Delete/5 | Management
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -247,6 +255,7 @@ namespace StoreFront.UI.Controllers
 
         // POST: Products/Delete/5 | Management
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -271,6 +280,7 @@ namespace StoreFront.UI.Controllers
 
         // AJAX DELETE Products/AjaxDelete/5 | Management
         [AcceptVerbs(HttpVerbs.Post)]
+        [Authorize(Roles = "Admin")]
         public JsonResult AjaxDelete(int id)
         {
             Product product = db.Products.Find(id);

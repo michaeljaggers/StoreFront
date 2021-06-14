@@ -13,6 +13,7 @@ using StoreFront.UI.Utilities;
 
 namespace StoreFront.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class FlavorsController : Controller
     {
         private StoreFrontEntities db = new StoreFrontEntities();
